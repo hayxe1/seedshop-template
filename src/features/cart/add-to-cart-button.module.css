@@ -1,0 +1,81 @@
+.button {
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: 16px;
+  font-weight: 650;
+  min-height: 48px;
+  padding: 10px 14px;
+  background: var(--action-primary);
+  color: var(--on-action-primary);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.06s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.button:hover {
+  background: var(--action-primary-hover);
+}
+
+.button:active {
+  transform: translateY(1px);
+  background: var(--action-primary-active);
+}
+
+.button:disabled {
+  background: color-mix(in srgb, var(--text-secondary) 30%, var(--bg-soft) 70%);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.stepper {
+  min-height: 48px;
+  border-radius: var(--radius-pill);
+  background: var(--action-primary);
+  color: var(--on-action-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 4px;
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.stepButton {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--on-primary);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.stepButton:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.stepButton:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.qtyValue {
+  min-width: 24px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+}

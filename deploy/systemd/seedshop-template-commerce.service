@@ -1,0 +1,9 @@
+[Unit]
+Description=Seedshop Template commerce maintenance
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+Environment=PROJECT_DIR=/opt/seedshop-template
+ExecStart=/bin/sh /opt/seedshop-template/deploy/run-commerce-cron.sh

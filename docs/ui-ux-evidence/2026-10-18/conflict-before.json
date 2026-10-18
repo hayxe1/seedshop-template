@@ -1,0 +1,30 @@
+[
+  {
+    "variant": "different-fields",
+    "firstSaved": {
+      "name": "ДЕМО Конфликт different-fields — первая вкладка",
+      "price": 149,
+      "isPublished": true
+    },
+    "secondStatus": 200,
+    "secondSaved": {
+      "name": "ДЕМО Конфликт different-fields",
+      "price": 321,
+      "isPublished": true
+    }
+  },
+  {
+    "variant": "same-field-visibility",
+    "firstSaved": {
+      "name": "ДЕМО Конфликт same-field-visibility",
+      "price": 149,
+      "isPublished": false
+    },
+    "secondStatus": 200,
+    "secondSaved": {
+      "name": "ДЕМО Конфликт same-field-visibility — вторая вкладка",
+      "price": 149,
+      "isPublished": true
+    }
+  }
+]

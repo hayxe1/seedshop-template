@@ -1,0 +1,295 @@
+{
+  "date": "2026-10-18",
+  "repository": "seedshop-template; Git absent; original copies/hashes preserved, no repository initialized",
+  "environment": {
+    "node": "v24.15.0",
+    "chrome": "155.0.8059.80",
+    "next": "16.3.8",
+    "postgres": "18.3",
+    "database": "isolated loopback synthetic databases; no production access"
+  },
+  "checks": [
+    {
+      "command": "full E2E",
+      "result": "passed",
+      "logSha256": "089c5f9fb431c41878d50b035746fb0bd78618a052975dca590b97dac7fab42e",
+      "localLog": ".codex-tmp/ux-program-20261018/tests-full-verified.log"
+    },
+    {
+      "command": "analytics E2E",
+      "result": "passed",
+      "logSha256": "2155eed34ea3af1fb6af36d0bb75ec61a8ead71155652d0083c2924bd131c902",
+      "localLog": ".codex-tmp/ux-program-20261018/tests-analytics.log"
+    },
+    {
+      "command": "npm run prisma:validate",
+      "result": "passed",
+      "logSha256": "c04043f21d84596a43ecdf49dd5618d0c2f7d0134a16faa18fbe82bbdb157817",
+      "localLog": ".codex-tmp/ux-program-20261018/prisma-validate-release.log"
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "passed",
+      "logSha256": "117b293db0c7fa9beaae2fc8d5e21edd275bdf1375c5f41f3b31265a3212ed26",
+      "localLog": ".codex-tmp/ux-program-20261018/typecheck-release.log"
+    },
+    {
+      "command": "npm run typecheck:e2e",
+      "result": "passed",
+      "logSha256": "0d85926ba3dfbaee864b8a7836088f122426d4e9df36aa242702f098acc59c45",
+      "localLog": ".codex-tmp/ux-program-20261018/typecheck-e2e-release.log"
+    },
+    {
+      "command": "npm run lint",
+      "result": "passed",
+      "logSha256": "2c0d7e31a2a788ee534acf46063d63db85216c0cf05975e21cf5f4ab7ad066e2",
+      "localLog": ".codex-tmp/ux-program-20261018/lint-release.log"
+    },
+    {
+      "command": "npm run build",
+      "result": "passed",
+      "logSha256": "73d2c11c376b83bedcb4a12a865b7e5cca9cc348793a03e3b80fbfd65cc804bb",
+      "localLog": ".codex-tmp/ux-program-20261018/build-final.log"
+    },
+    {
+      "command": "standalone smoke",
+      "result": "passed",
+      "logSha256": "ad9a3840864bda0f9a95de887196aa53b96e8e23bc4ea7face5b8fb183739c48",
+      "localLog": ".codex-tmp/ux-program-20261018/smoke-final-retry.log"
+    }
+  ],
+  "fullSuite": {
+    "passed": 107,
+    "skipped": 3,
+    "separatelyPassedAnalytics": 3,
+    "explanation": "The three initially skipped analytics cases passed in the explicitly enabled separate run; provider requests were intercepted."
+  },
+  "finalCopyChange": "After the full suite, only the repeated unknown-pack label was simplified; final production build, types/lint and Chrome screenshots include that copy.",
+  "visual": {
+    "implementedReferences": [
+      "catalog",
+      "product",
+      "product editor"
+    ],
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "selectedByUser": [
+      "catalog A",
+      "product A",
+      "photo 4:5"
+    ],
+    "comparisonData": "same seven synthetic products/media on same database",
+    "gallery": "index.html",
+    "rendererValidation": "render-validation.json",
+    "performance": "36 before + 36 after; raw v2 and summary retained"
+  },
+  "coverage": {
+    "candidates": 60,
+    "eachIdExactlyOnce": true,
+    "reportLinksChecked": 17
+  },
+  "protectedChecks": [
+    {
+      "file": "AGENTS.md",
+      "unchanged": true
+    },
+    {
+      "file": "PRODUCT.md",
+      "unchanged": true
+    },
+    {
+      "file": "DESIGN.md",
+      "unchanged": true
+    },
+    {
+      "file": "package.json",
+      "unchanged": true
+    },
+    {
+      "file": "package-lock.json",
+      "unchanged": true
+    },
+    {
+      "file": "prisma/schema.prisma",
+      "unchanged": true
+    },
+    {
+      "file": "tsconfig.json",
+      "unchanged": true
+    },
+    {
+      "file": "next-env.d.ts",
+      "unchanged": true
+    },
+    {
+      "file": "docs/UI-UX-DECISIONS.md",
+      "unchanged": true
+    },
+    {
+      "file": "docs/UI-UX-IMPLEMENTATION-PLAN.md",
+      "unchanged": true
+    }
+  ],
+  "whitespace": "no newly introduced whitespace errors in changed files",
+  "limitations": [
+    "real iPhone/Android and native keyboard/safe area",
+    "native browser zoom and screen reader",
+    "external users and commercial metrics",
+    "real payments, notifications, external SEO validators and production"
+  ],
+  "transientFailure": "First standalone smoke failed with ECONNRESET; same stock smoke passed on retry without an application change. Failure log preserved in local scratch.",
+  "sourceHashes": [
+    {
+      "file": "src/app/(storefront)/cart/page.tsx",
+      "sha256": "7885d82f65a96eb636d325c6ae84079b0daf357885f5e84347636ef4974438ac"
+    },
+    {
+      "file": "src/app/(storefront)/catalog/catalog.module.css",
+      "sha256": "8c8738d33bc03a8c0593862afb729d2b328859e699883aa586e1db75d8e5479c"
+    },
+    {
+      "file": "src/app/(storefront)/catalog/page.tsx",
+      "sha256": "154dcd73d298f3c39146f0ca6b24baa65a32aa971ed8cebc27e6ce2f4903b491"
+    },
+    {
+      "file": "src/app/(storefront)/order/[token]/order-status-client.tsx",
+      "sha256": "18f80b7bf01ad41af98fac935aa2166e72a0ec1bc8bea261320ab3ff82629075"
+    },
+    {
+      "file": "src/app/(storefront)/product/[slug]/page.tsx",
+      "sha256": "5491178a0f37b2eabebdb4ba7b255b4dbc0d07b0ae282597d7d15f40f2ec736c"
+    },
+    {
+      "file": "src/app/(storefront)/product/[slug]/product-gallery.tsx",
+      "sha256": "45d12a65e3788379f2f531c31f6eb4bc9abc98cde54c5f9acc5f92e1f4e6a532"
+    },
+    {
+      "file": "src/app/(storefront)/product/[slug]/product-page.module.css",
+      "sha256": "3487becb11af80272beb49fa86f3618bbb976d289af213bfd06727cbcf2d92b4"
+    },
+    {
+      "file": "src/app/admin/catalog/catalog-client.tsx",
+      "sha256": "f41a147c6f716fd14f0166f534809716d708ecdcb4c4764e95a26fd5cf2d89bc"
+    },
+    {
+      "file": "src/app/admin/catalog/products/product-editor-client.tsx",
+      "sha256": "a942d5ca97a4d5091caa843cd54baf88404f0d14ec8ceb4cbdf6feb83adb4931"
+    },
+    {
+      "file": "src/app/admin/catalog/products/product-editor.module.css",
+      "sha256": "2502d2c9b70c5157203b86ddbd06cd7ab4eb969ffc03ea7a2b9642a1a87aa3a6"
+    },
+    {
+      "file": "src/app/admin/orders/orders-client.tsx",
+      "sha256": "c037f129091c0d7e19c51454fe1110fdbb73104e8202ae30a9a6d7781650641b"
+    },
+    {
+      "file": "src/app/api/admin/catalog/products/[id]/route.ts",
+      "sha256": "e6f2a7e3b7a6992557f942189a16428059b32b4b761ae9cd4329f69ee4046287"
+    },
+    {
+      "file": "src/app/api/catalog/suggestions/route.ts",
+      "sha256": "a592e8fb297687597413853744551849103361d5f1dcee8c98e14529cbdc4be2"
+    },
+    {
+      "file": "src/entities/product/model/catalog-data.ts",
+      "sha256": "6cf8bb5f1950828b00f672d8e4a8435a2dfe166c86bd5d865becc0c9b1fbeb9b"
+    },
+    {
+      "file": "src/entities/product/model/catalog-search.ts",
+      "sha256": "dff90aef5e92c97766ae8eb0365c52937c738fd0e221b6b5e7192af10f83bc09"
+    },
+    {
+      "file": "src/features/cart/cart-quantity-input.tsx",
+      "sha256": "d24fb830d6209324a1128d02bcbbcb8bb25b1049a9dd50ee6962c98fb8e6a153"
+    },
+    {
+      "file": "src/features/catalog/product-card.module.css",
+      "sha256": "ea723c604f41189a16e0e0a113400374c097e4650ccead0166b9cdaff1f31381"
+    },
+    {
+      "file": "src/features/catalog/product-card.tsx",
+      "sha256": "5bde0e826f094f6695ceb5bcccef5ae094d320c35ee81fd84d58ff3f9b21d31b"
+    },
+    {
+      "file": "src/features/product/product-purchase-panel.module.css",
+      "sha256": "6af070307ba0d668bf09b981c600459239d749bd084f5795ce9b931006570cab"
+    },
+    {
+      "file": "src/features/product/product-purchase-panel.tsx",
+      "sha256": "3a44b6bc67da2e8c5eaa8dfa54ad5ef6531519d2e5e4759537aa2aaddeec06e6"
+    },
+    {
+      "file": "src/server/commerce/inventory.ts",
+      "sha256": "0f96e2e9dd2d70b55fe077cc2f2df9b44487418573dfa273493745d87f0bbeda"
+    },
+    {
+      "file": "src/shared/ui/catalog-search-box.tsx",
+      "sha256": "633d28e9a605b35338a8bbffc10ab82fedd629fb15bdeb72ed9aa27f52d7b2f8"
+    },
+    {
+      "file": "prisma/demo-seed.mjs",
+      "sha256": "e4e42c1709141de95bcb0c1591506269980b495b2e9aa43fb8ac7fa06b665de6"
+    },
+    {
+      "file": "tests/e2e/improvements.spec.ts",
+      "sha256": "78ca322d022594fa797842b1096ade00df1a7dc33c44d9f3ab8b7dfe9b1e55f0"
+    },
+    {
+      "file": "tests/e2e/preorder.spec.ts",
+      "sha256": "2dba94cb46b8f7be4b83cfe1e59a59b2a29b76d31dac480b8f812fc804bbf1fb"
+    },
+    {
+      "file": "tests/e2e/product-fixtures.ts",
+      "sha256": "d4f930b5ac0f4dd8169a5b0aa529c498525210501e2cb1c3b829b60de71d7218"
+    },
+    {
+      "file": "docs/client-adaptation.md",
+      "sha256": "248c9d59786ac8b3036a6d4b21811bd5efdaa0a29dd9def54ac1a23585bdec4e"
+    },
+    {
+      "file": "docs/seller-guide.md",
+      "sha256": "3edcfbae032b5b99e7b6f4c17fc689a577e5a0518f87e985d743c6329aa62fa0"
+    },
+    {
+      "file": "README.md",
+      "sha256": "b16728fb892b3ea2e7d69baa433df289973dcf4426376d58ece4176b5129491e"
+    },
+    {
+      "file": "src/entities/product/model/catalog-search-where.ts",
+      "sha256": "37075174e8d70d9608d4028d5c1aacb7dd192b1deaeaf1c4406855627c4027fc"
+    },
+    {
+      "file": "src/shared/ui/catalog-position.tsx",
+      "sha256": "7cf007a1e66e2d78c2c3575a2f019dd4922bdb625f438f5e7e9a06a62c3412c1"
+    },
+    {
+      "file": "src/shared/ui/product-image.module.css",
+      "sha256": "f6b96edd13196a299e14e21f5b8b627b87855ee56cffb3ad6c780cc067c2cce0"
+    },
+    {
+      "file": "src/shared/ui/product-image.tsx",
+      "sha256": "b70cfd39be45268828ddef3826c9e2f1c68c75ef42de0bcd6cfd73bd8f1924c7"
+    },
+    {
+      "file": "tests/e2e/ui-ux-accessibility.spec.ts",
+      "sha256": "6f96f0789e3c150416cedf6d7368300e8a6419153bfb51eb2ed2d1372a7fab24"
+    },
+    {
+      "file": "tests/e2e/ui-ux-program.spec.ts",
+      "sha256": "1e673e9cd2ff27f4f8d454ae92617dabc3f9dc5785007044ca3f921168ecf7b6"
+    },
+    {
+      "file": "public/demo/package-square.svg",
+      "sha256": "fad4e32523a9d50e7cddae856efee8651f1618fa63f4f9e35f7b4422ce5654ad"
+    },
+    {
+      "file": "public/demo/package-wide.svg",
+      "sha256": "32604c21f554836f330e25e23475f772fea2d5ddc0ecb1187472f3ccece55fd4"
+    }
+  ]
+}

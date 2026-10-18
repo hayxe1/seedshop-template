@@ -1,0 +1,140 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--admin-bg);
+}
+
+.card {
+  width: min(460px, 100%);
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  box-shadow: var(--admin-shadow);
+  padding: 24px;
+  display: grid;
+  gap: 14px;
+}
+
+.card h1 {
+  margin: 0;
+  color: var(--admin-text);
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+.card p {
+  margin: 0;
+  color: var(--admin-text-muted);
+  font-size: 14px;
+}
+
+.form {
+  display: grid;
+  gap: 12px;
+}
+
+.form label {
+  display: grid;
+  gap: 6px;
+  color: var(--admin-text);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.form input {
+  width: 100%;
+  min-height: var(--admin-control-height);
+  border: 1px solid var(--admin-border-strong);
+  border-radius: var(--admin-radius-sm);
+  background: #fff;
+  color: var(--admin-text);
+  padding: 0 12px;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.passwordField {
+  position: relative;
+  display: block;
+}
+
+.passwordField input {
+  padding-right: 48px;
+}
+
+.form .passwordToggle {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  display: grid;
+  width: 38px;
+  min-height: 38px;
+  padding: 0;
+  place-items: center;
+  translate: 0 -50%;
+  border: 0;
+  border-radius: var(--admin-radius-sm);
+  background: transparent;
+  color: var(--admin-text-muted);
+}
+
+.form .passwordToggle:hover {
+  background: var(--admin-surface-muted);
+  color: var(--admin-text);
+}
+
+.form .passwordToggle:focus-visible {
+  outline: 2px solid var(--admin-accent);
+  outline-offset: 1px;
+}
+
+.passwordToggle svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.form input:focus {
+  border-color: var(--admin-accent);
+  box-shadow: 0 0 0 3px rgba(26, 127, 71, 0.12);
+}
+
+.form button {
+  min-height: var(--admin-control-height);
+  border: 1px solid var(--admin-accent);
+  border-radius: var(--admin-radius-sm);
+  background: var(--admin-accent);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 0 14px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background: var(--admin-accent-hover);
+}
+
+.form button:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.error {
+  margin: 0;
+  border: 1px solid #f0c7c4;
+  border-radius: var(--admin-radius-sm);
+  background: var(--admin-danger-soft);
+  color: var(--admin-danger);
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 700;
+}

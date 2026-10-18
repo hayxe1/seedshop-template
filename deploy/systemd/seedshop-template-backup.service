@@ -1,0 +1,9 @@
+[Unit]
+Description=Back up the Seedshop Template PostgreSQL database
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+Environment=PROJECT_DIR=/opt/seedshop-template
+ExecStart=/bin/sh /opt/seedshop-template/deploy/backup-postgres.sh

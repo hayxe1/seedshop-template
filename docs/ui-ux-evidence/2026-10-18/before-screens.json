@@ -1,0 +1,86 @@
+{
+  "phase": "before",
+  "mode": "Local production build, same seven synthetic products and revised representative media",
+  "measures": [
+    {
+      "name": "catalog",
+      "url": "/catalog?manufacturer=%D0%94%D0%B5%D0%BC%D0%BE%3A%20%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0&sort=newest",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 3250,
+      "firstProductY": 862.53125
+    },
+    {
+      "name": "catalog-entry",
+      "url": "/catalog",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 5313,
+      "firstProductY": 802.53125
+    },
+    {
+      "name": "product",
+      "url": "/product/uxp-long",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 3811,
+      "firstProductY": 2779.890625
+    },
+    {
+      "name": "editor",
+      "url": "/admin/catalog/products/cmvd0lt0x000014j9homlf4bf",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 4042,
+      "firstProductY": 2355.8125
+    },
+    {
+      "name": "home",
+      "url": "/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 5897,
+      "firstProductY": 801
+    },
+    {
+      "name": "catalog",
+      "url": "/catalog?manufacturer=%D0%94%D0%B5%D0%BC%D0%BE%3A%20%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0&sort=newest",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 4982,
+      "firstProductY": 1144.3125
+    },
+    {
+      "name": "catalog-entry",
+      "url": "/catalog",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 9323,
+      "firstProductY": 1019.3125
+    },
+    {
+      "name": "product",
+      "url": "/product/uxp-long",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 6125,
+      "firstProductY": 4216.234375
+    },
+    {
+      "name": "editor",
+      "url": "/admin/catalog/products/cmvd0lt0x000014j9homlf4bf",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 5662,
+      "firstProductY": 3095.515625
+    },
+    {
+      "name": "home",
+      "url": "/",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 10056,
+      "firstProductY": 753.4375
+    }
+  ]
+}

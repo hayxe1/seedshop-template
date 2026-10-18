@@ -1,0 +1,329 @@
+{
+  "protocol": "v2: one observer per metric/navigation, warm-cache priming, three cold and three warm runs; no other task builds/tests during the series",
+  "rows": [
+    {
+      "width": 1440,
+      "name": "catalog",
+      "cache": "cold",
+      "before": {
+        "lcp": 76,
+        "lcpRange": [
+          68,
+          352
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 13.699999988079071,
+        "resourceBytes": 488392
+      },
+      "after": {
+        "lcp": 68,
+        "lcpRange": [
+          68,
+          356
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 13.800000011920929,
+        "resourceBytes": 485179
+      }
+    },
+    {
+      "width": 1440,
+      "name": "catalog",
+      "cache": "warm",
+      "before": {
+        "lcp": 40,
+        "lcpRange": [
+          40,
+          40
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 10.5,
+        "resourceBytes": 33289
+      },
+      "after": {
+        "lcp": 40,
+        "lcpRange": [
+          40,
+          44
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 11,
+        "resourceBytes": 33318
+      }
+    },
+    {
+      "width": 1440,
+      "name": "product",
+      "cache": "cold",
+      "before": {
+        "lcp": 56,
+        "lcpRange": [
+          56,
+          80
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 6.300000011920929,
+        "resourceBytes": 426764
+      },
+      "after": {
+        "lcp": 64,
+        "lcpRange": [
+          56,
+          88
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 6.4000000059604645,
+        "resourceBytes": 424262
+      }
+    },
+    {
+      "width": 1440,
+      "name": "product",
+      "cache": "warm",
+      "before": {
+        "lcp": 36,
+        "lcpRange": [
+          32,
+          36
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 5.699999988079071,
+        "resourceBytes": 34877
+      },
+      "after": {
+        "lcp": 40,
+        "lcpRange": [
+          40,
+          40
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 8.199999988079071,
+        "resourceBytes": 34870
+      }
+    },
+    {
+      "width": 1440,
+      "name": "editor",
+      "cache": "cold",
+      "before": {
+        "lcp": 48,
+        "lcpRange": [
+          40,
+          180
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 14.199999988079071,
+        "resourceBytes": 447960
+      },
+      "after": {
+        "lcp": 64,
+        "lcpRange": [
+          52,
+          148
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 20.5,
+        "resourceBytes": 480722
+      }
+    },
+    {
+      "width": 1440,
+      "name": "editor",
+      "cache": "warm",
+      "before": {
+        "lcp": 36,
+        "lcpRange": [
+          32,
+          40
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 14.200000017881393,
+        "resourceBytes": 14448
+      },
+      "after": {
+        "lcp": 40,
+        "lcpRange": [
+          40,
+          44
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 14.800000011920929,
+        "resourceBytes": 17903
+      }
+    },
+    {
+      "width": 390,
+      "name": "catalog",
+      "cache": "cold",
+      "before": {
+        "lcp": 708,
+        "lcpRange": [
+          704,
+          772
+        ],
+        "cls": 0.000006522868925583375,
+        "clsMax": 0.000006522868925583375,
+        "ttfb": 9.900000005960464,
+        "resourceBytes": 401299
+      },
+      "after": {
+        "lcp": 1232,
+        "lcpRange": [
+          1188,
+          1268
+        ],
+        "cls": 0.00008024530360636496,
+        "clsMax": 0.00008024530360636496,
+        "ttfb": 10.400000005960464,
+        "resourceBytes": 398097
+      }
+    },
+    {
+      "width": 390,
+      "name": "catalog",
+      "cache": "warm",
+      "before": {
+        "lcp": 244,
+        "lcpRange": [
+          244,
+          244
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 9.199999988079071,
+        "resourceBytes": 14230
+      },
+      "after": {
+        "lcp": 256,
+        "lcpRange": [
+          228,
+          256
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 9.299999982118607,
+        "resourceBytes": 13925
+      }
+    },
+    {
+      "width": 390,
+      "name": "product",
+      "cache": "cold",
+      "before": {
+        "lcp": 736,
+        "lcpRange": [
+          724,
+          872
+        ],
+        "cls": 0.00008938292193139625,
+        "clsMax": 0.00008938292193139625,
+        "ttfb": 6.800000011920929,
+        "resourceBytes": 400221
+      },
+      "after": {
+        "lcp": 712,
+        "lcpRange": [
+          712,
+          872
+        ],
+        "cls": 0.0003319033190689614,
+        "clsMax": 0.0003319033190689614,
+        "ttfb": 6.300000011920929,
+        "resourceBytes": 397720
+      }
+    },
+    {
+      "width": 390,
+      "name": "product",
+      "cache": "warm",
+      "before": {
+        "lcp": 536,
+        "lcpRange": [
+          528,
+          572
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 6.5,
+        "resourceBytes": 14313
+      },
+      "after": {
+        "lcp": 560,
+        "lcpRange": [
+          536,
+          716
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 7,
+        "resourceBytes": 14307
+      }
+    },
+    {
+      "width": 390,
+      "name": "editor",
+      "cache": "cold",
+      "before": {
+        "lcp": 804,
+        "lcpRange": [
+          804,
+          896
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 14.799999982118607,
+        "resourceBytes": 447967
+      },
+      "after": {
+        "lcp": 804,
+        "lcpRange": [
+          788,
+          952
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 22.19999998807907,
+        "resourceBytes": 480724
+      }
+    },
+    {
+      "width": 390,
+      "name": "editor",
+      "cache": "warm",
+      "before": {
+        "lcp": 252,
+        "lcpRange": [
+          224,
+          252
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 13,
+        "resourceBytes": 14451
+      },
+      "after": {
+        "lcp": 260,
+        "lcpRange": [
+          228,
+          260
+        ],
+        "cls": 0,
+        "clsMax": 0,
+        "ttfb": 9.300000011920929,
+        "resourceBytes": 18381
+      }
+    }
+  ]
+}

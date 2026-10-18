@@ -1,0 +1,775 @@
+.filtersPanel {
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.statusTabs {
+  min-width: 0;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.statusTabs button,
+.paginationFooter button {
+  min-height: 44px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--bg-soft);
+  color: var(--text-primary);
+  padding: 0 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.statusTabs .statusTabActive,
+.paginationFooter .currentPage {
+  background: var(--action-primary);
+  color: var(--on-primary);
+}
+
+.dateRange {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 10px;
+}
+
+.dateRange label,
+.operationsBlock label,
+.deliveryForm label {
+  display: grid;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.dateRange input,
+.operationsBlock select,
+.deliveryForm input,
+.deliveryForm select,
+.deliveryForm textarea {
+  min-height: 44px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  padding: 9px 11px;
+}
+
+.error {
+  margin: 0;
+  border-radius: var(--radius-sm);
+  background: var(--error-container);
+  color: var(--on-error-container);
+  padding: 12px 14px;
+}
+
+.success {
+  margin: 0;
+  border-radius: var(--admin-radius-sm);
+  background: #e5f5ea;
+  color: #145d32;
+  padding: 12px 14px;
+}
+
+.ordersList {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.emptyState {
+  margin: 0;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  padding: 36px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.orderCard {
+  min-width: 0;
+  max-width: 100%;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.orderHeader {
+  padding: 18px 20px;
+  background: var(--bg-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.orderHeader > div:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.orderHeader time {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.orderId {
+  color: var(--brand-primary-active);
+  font-size: 19px;
+}
+
+.headerBadges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.statusBadge,
+.repeatBadge,
+.warningBadge {
+  min-height: 30px;
+  border-radius: var(--radius-pill);
+  padding: 6px 11px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.statusNEW {
+  background: #eef1ff;
+  color: #283552;
+}
+
+.statusPROCESSING,
+.statusPACKED {
+  background: #edf0ea;
+  color: #344438;
+}
+
+.statusSHIPPED,
+.statusDELIVERED {
+  background: #dff5e7;
+  color: #126937;
+}
+
+.statusCANCELLED {
+  background: var(--error-container);
+  color: var(--on-error-container);
+}
+
+.repeatBadge {
+  background: #e5f3ff;
+  color: #225d84;
+}
+
+.warningBadge {
+  background: #fff1cf;
+  color: #754c00;
+}
+
+.orderGrid {
+  min-width: 0;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: minmax(210px, 0.8fr) minmax(320px, 1.4fr) minmax(200px, 0.7fr);
+  gap: 24px;
+}
+
+.orderGrid section {
+  min-width: 0;
+}
+
+.orderGrid h2,
+.blockHeading h2 {
+  margin: 0 0 12px;
+  font-size: 15px;
+}
+
+.customerBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.customerBlock a {
+  color: var(--brand-primary-active);
+  text-underline-offset: 3px;
+}
+
+.customerBlock p,
+.customerBlock blockquote {
+  margin: 6px 0 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.customerBlock blockquote {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  background: var(--bg-soft);
+  padding: 10px;
+}
+
+.blockHeading {
+  min-width: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.blockHeading > strong {
+  color: var(--brand-primary-active);
+}
+
+.orderItems {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.orderItems li {
+  border-radius: var(--radius-sm);
+  background: var(--bg-soft);
+  padding: 9px 10px;
+  display: grid;
+  gap: 5px;
+}
+
+.orderItems li > div,
+.priceBreakdown div {
+  min-width: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.orderItems strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.orderItems span,
+.orderItems small,
+.priceBreakdown {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.priceBreakdown {
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-soft);
+  display: grid;
+  gap: 5px;
+}
+
+.priceBreakdown dt,
+.priceBreakdown dd {
+  margin: 0;
+}
+
+.operationsBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.statusControl {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, auto);
+  gap: 10px;
+  align-items: end;
+}
+
+.statusControl label {
+  min-width: 0;
+}
+
+.preorderControl {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.preorderControl input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  padding: 8px 10px;
+  font: inherit;
+}
+
+.preorderControl button {
+  white-space: normal;
+  padding-block: 10px;
+}
+
+.statusControl button {
+  width: auto;
+  white-space: nowrap;
+}
+
+.operationsBlock button,
+.deliveryForm button {
+  min-height: 44px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--action-primary);
+  color: var(--on-primary);
+  padding: 0 14px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.operationsBlock button:disabled,
+.deliveryForm button:disabled {
+  border: 1px solid var(--admin-border);
+  background: var(--admin-surface-muted);
+  color: var(--admin-text-soft);
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.deliveryDetails,
+.auditDetails {
+  border-top: 1px solid var(--line-soft);
+}
+
+.deliveryDetails summary,
+.auditDetails summary {
+  min-height: 48px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  color: var(--brand-primary-active);
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.deliveryForm {
+  padding: 0 20px 20px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.deliveryForm textarea {
+  resize: vertical;
+}
+
+.deliveryForm .wideField {
+  grid-column: span 2;
+}
+
+.deliveryForm button {
+  align-self: end;
+}
+
+.auditGrid {
+  padding: 0 20px 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+}
+
+.auditGrid ol {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.auditGrid li {
+  padding-left: 4px;
+}
+
+.auditGrid time,
+.auditGrid span {
+  margin-top: 2px;
+  display: block;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.paginationFooter {
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.paginationFooter p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+.paginationFooter nav {
+  display: flex;
+  gap: 8px;
+}
+
+.paginationFooter button {
+  min-width: 44px;
+  padding: 0 12px;
+}
+
+.paginationFooter button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.filtersPanel,
+.orderCard,
+.paginationFooter {
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  background: var(--admin-surface);
+  box-shadow: var(--admin-shadow);
+}
+
+.filtersPanel {
+  padding: 12px;
+  gap: 12px;
+}
+
+.statusTabs button,
+.paginationFooter button {
+  min-height: var(--admin-control-height);
+  border: 1px solid transparent;
+  background: var(--admin-surface-muted);
+  color: var(--admin-text);
+  padding: 0 14px;
+  font-size: 0.875rem;
+  font-weight: 750;
+}
+
+.statusTabs .statusTabActive,
+.paginationFooter .currentPage {
+  border-color: var(--admin-accent);
+  background: var(--admin-accent);
+  color: #fff;
+}
+
+.dateRange label,
+.operationsBlock label,
+.deliveryForm label {
+  color: var(--admin-text-muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.dateRange input,
+.operationsBlock select,
+.deliveryForm input,
+.deliveryForm select,
+.deliveryForm textarea {
+  min-height: var(--admin-control-height);
+  border-color: var(--admin-border);
+  border-radius: var(--admin-radius-sm);
+  background: var(--admin-surface);
+  color: var(--admin-text);
+}
+
+.ordersList {
+  gap: 12px;
+}
+
+.emptyState {
+  border: 1px dashed var(--admin-border-strong);
+  border-radius: var(--admin-radius);
+  background: var(--admin-surface-subtle);
+  padding: 28px;
+  color: var(--admin-text-muted);
+}
+
+.orderCard {
+  overflow: hidden;
+}
+
+.orderHeader {
+  padding: 14px 16px;
+  background: var(--admin-surface-subtle);
+  gap: 16px;
+}
+
+.orderHeader time,
+.customerBlock p,
+.customerBlock blockquote,
+.orderItems span,
+.orderItems small,
+.priceBreakdown,
+.auditGrid time,
+.auditGrid span,
+.paginationFooter p {
+  color: var(--admin-text-muted);
+}
+
+.orderId,
+.customerBlock a,
+.blockHeading > strong,
+.deliveryDetails summary,
+.auditDetails summary {
+  color: var(--admin-accent);
+}
+
+.orderId {
+  font-size: 1rem;
+}
+
+.statusBadge,
+.repeatBadge,
+.warningBadge {
+  min-height: 28px;
+  font-size: 0.75rem;
+}
+
+.orderGrid {
+  padding: 16px;
+  grid-template-columns: minmax(220px, 0.78fr) minmax(320px, 1.35fr) minmax(230px, 0.72fr);
+  gap: 18px;
+}
+
+.customerBlock blockquote,
+.orderItems li {
+  border-radius: var(--admin-radius-sm);
+  background: var(--admin-surface-subtle);
+}
+
+.priceBreakdown,
+.deliveryDetails,
+.auditDetails {
+  border-color: var(--admin-border);
+}
+
+.operationsBlock button,
+.deliveryForm button {
+  min-height: var(--admin-control-height);
+  border-radius: var(--admin-radius-sm);
+  background: var(--admin-accent);
+  color: #fff;
+}
+
+.nextAction {
+  margin: 0;
+  border-radius: var(--admin-radius-sm);
+  background: var(--admin-surface-subtle);
+  color: var(--admin-text-muted);
+  padding: 10px;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.paymentSummary {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--admin-text-muted);
+  font-size: 0.8125rem;
+}
+
+.paymentSummary strong {
+  color: var(--admin-text);
+}
+
+.refundDetails {
+  border: 1px solid var(--admin-border-strong);
+  border-radius: var(--admin-radius-sm);
+  background: var(--admin-surface-subtle);
+}
+
+.refundDetails summary {
+  min-height: var(--admin-control-height);
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  color: var(--on-error-container);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.refundForm {
+  padding: 0 12px 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.refundForm p,
+.refundComplete {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.refundForm p {
+  color: var(--admin-text-muted);
+}
+
+.refundForm label:not(.refundConfirmation) {
+  display: grid;
+  gap: 6px;
+  color: var(--admin-text-muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.refundForm input[type="text"],
+.refundForm input:not([type]) {
+  min-height: var(--admin-control-height);
+  min-width: 0;
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-sm);
+  background: var(--admin-surface);
+  color: var(--admin-text);
+  padding: 9px 11px;
+}
+
+.refundConfirmation {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--admin-text);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.refundConfirmation input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex: 0 0 auto;
+  accent-color: var(--admin-accent);
+}
+
+.operationsBlock .refundButton {
+  background: var(--error-container);
+  color: var(--on-error-container);
+}
+
+.refundComplete {
+  border-radius: var(--admin-radius-sm);
+  background: #e5f5ea;
+  color: #145d32;
+  padding: 10px;
+  font-weight: 750;
+}
+
+.deliveryDetails summary,
+.auditDetails summary {
+  padding: 0 16px;
+}
+
+.deliveryForm,
+.auditGrid {
+  padding-inline: 16px;
+  padding-bottom: 16px;
+}
+
+.paginationFooter {
+  padding: 12px;
+}
+
+@media (max-width: 1050px) {
+  .filtersPanel {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .statusTabs {
+    width: 100%;
+  }
+
+  .dateRange {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .orderGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .operationsBlock {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .filtersPanel,
+  .orderHeader,
+  .paginationFooter {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .dateRange,
+  .statusControl,
+  .orderGrid,
+  .deliveryForm,
+  .auditGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dateRange {
+    display: grid;
+  }
+
+  .statusControl button {
+    width: 100%;
+    min-width: 0;
+    white-space: normal;
+  }
+
+  .headerBadges {
+    justify-content: flex-start;
+  }
+
+  .orderGrid {
+    padding: 16px;
+  }
+
+  .operationsBlock,
+  .deliveryForm .wideField {
+    grid-column: auto;
+  }
+
+  .paginationFooter nav {
+    overflow-x: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statusTabs,
+  .paginationFooter nav {
+    scroll-behavior: auto;
+  }
+}

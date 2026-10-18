@@ -1,0 +1,83 @@
+.banner {
+  position: fixed;
+  z-index: 120;
+  right: clamp(16px, 3vw, 32px);
+  bottom: clamp(16px, 3vw, 32px);
+  display: grid;
+  width: min(560px, calc(100vw - 32px));
+  padding: 20px;
+  gap: 16px;
+  border: 1px solid color-mix(in srgb, var(--color-primary, #2d7d46) 22%, white);
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--color-surface, #fff) 96%, transparent);
+  box-shadow: 0 20px 64px rgb(24 62 39 / 18%);
+  backdrop-filter: blur(18px);
+}
+
+.banner strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--color-text, #173c28);
+  font-size: 1.125rem;
+}
+
+.banner p {
+  margin: 0;
+  color: var(--color-text-muted, #53685b);
+  font-size: 1.125rem;
+  line-height: 1.55;
+}
+
+.banner a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.actions button {
+  min-height: 48px;
+  padding: 0 15px;
+  border: 1px solid rgb(45 125 70 / 20%);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-text, #173c28);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.actions button:hover {
+  border-color: rgb(45 125 70 / 48%);
+}
+
+.actions button:focus-visible {
+  outline: 3px solid rgb(45 125 70 / 25%);
+  outline-offset: 2px;
+}
+
+.actions .accept {
+  border-color: var(--color-primary, #2d7d46);
+  background: var(--color-primary, #2d7d46);
+  color: white;
+}
+
+@media (max-width: 520px) {
+  .banner {
+    padding: 17px;
+    border-radius: 18px;
+  }
+
+  .actions {
+    display: grid;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}

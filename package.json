@@ -1,0 +1,58 @@
+{
+  "name": "seedshop-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "predev": "prisma migrate deploy && prisma generate",
+    "dev": "next dev",
+    "build": "next build",
+    "vercel-build": "prisma migrate deploy && prisma generate && next build",
+    "prepare:standalone": "node scripts/prepare-standalone.mjs",
+    "start": "node scripts/start-standalone.mjs",
+    "smoke:standalone": "node scripts/smoke-standalone.mjs",
+    "test:e2e": "node scripts/run-e2e-suite.mjs",
+    "test:e2e:headed": "node scripts/run-e2e-suite.mjs --headed",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --pretty false --incremental false",
+    "typecheck:e2e": "tsc --project tsconfig.e2e.json --noEmit --pretty false --incremental false",
+    "check": "npm run prisma:validate && npm run typecheck && npm run typecheck:e2e && npm run lint && npm run build",
+    "catalog:split-vegetables": "node scripts/catalog-split-vegetables.cjs",
+    "prisma:deploy": "prisma migrate deploy",
+    "prisma:generate": "prisma generate",
+    "prisma:validate": "prisma validate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "node prisma/demo-seed.mjs",
+    "demo:seed": "node prisma/demo-seed.mjs",
+    "admin:create": "node scripts/create-admin.mjs"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.6.0",
+    "@prisma/client": "^7.6.0",
+    "dotenv": "^17.4.1",
+    "next": "16.3.8",
+    "pg": "^8.20.0",
+    "prisma": "^7.6.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.59.1",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/pg": "^8.20.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "axe-core": "4.11.1",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "overrides": {
+    "@hono/node-server": "1.19.13",
+    "fast-uri": "3.1.8",
+    "hono": "4.13.12",
+    "postcss": "8.5.28"
+  }
+}

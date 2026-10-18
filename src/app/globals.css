@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+:root {
+  --font-ui-sans: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-brand-serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+
+  --surface: #f9f9f9;
+  --surface-dim: #dadada;
+  --surface-bright: #f9f9f9;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f3f3f3;
+  --surface-container: #eeeeee;
+  --surface-container-high: #e8e8e8;
+  --surface-container-highest: #e2e2e2;
+  --surface-variant: #e2e2e2;
+  --on-surface: #1a1c1c;
+  --on-surface-variant: #3e4a40;
+  --inverse-surface: #2f3131;
+  --inverse-on-surface: #f0f1f1;
+  --outline: #6e7a6f;
+  --outline-variant: #bdcabd;
+  --surface-tint: #006d39;
+  --primary: #006a37;
+  --on-primary: #ffffff;
+  --primary-container: #0b8649;
+  --on-primary-container: #f6fff4;
+  --inverse-primary: #73db94;
+  --secondary: #575e70;
+  --on-secondary: #ffffff;
+  --secondary-container: #d9dff5;
+  --on-secondary-container: #5c6274;
+  --tertiary: #5a5d5a;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #737572;
+  --on-tertiary-container: #fcfdf9;
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+
+  --leaf-green: #2d9a5a;
+  --deep-earth: #111827;
+  --soft-clay: #f4f5f1;
+  --pure-cloud: #fcfcfc;
+
+  --bg-page: var(--pure-cloud);
+  --bg-surface: var(--surface-container-lowest);
+  --bg-soft: var(--soft-clay);
+  --text-primary: var(--deep-earth);
+  --text-secondary: var(--on-surface-variant);
+  --line-soft: var(--surface-variant, #e2e2e2);
+
+  --brand-primary: var(--leaf-green);
+  --brand-primary-hover: var(--primary-container);
+  --brand-primary-active: var(--primary);
+  --brand-accent: var(--surface-tint);
+  --action-primary: var(--primary);
+  --action-primary-hover: var(--primary-container);
+  --action-primary-active: #00572e;
+  --on-action-primary: var(--on-primary);
+  --accent-text: var(--primary);
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 4px 20px rgba(17, 24, 39, 0.04);
+  --shadow-md: 0 12px 32px rgba(17, 24, 39, 0.08);
+  --shadow-focus: 0 0 0 3px rgba(45, 154, 90, 0.18);
+
+  --type-display-lg-size: 48px;
+  --type-display-lg-line: 56px;
+  --type-display-lg-weight: 700;
+  --type-display-lg-spacing: -0.02em;
+  --type-headline-lg-size: 32px;
+  --type-headline-lg-line: 40px;
+  --type-headline-lg-weight: 600;
+  --type-headline-md-size: 24px;
+  --type-headline-md-line: 32px;
+  --type-headline-md-weight: 700;
+  --type-body-lg-size: 18px;
+  --type-body-lg-line: 28px;
+  --type-body-md-size: 16px;
+  --type-body-md-line: 24px;
+  --type-label-md-size: 14px;
+  --type-label-md-line: 20px;
+  --type-label-md-weight: 600;
+  --type-label-sm-size: 12px;
+  --type-label-sm-line: 16px;
+  --type-label-sm-weight: 700;
+  --type-label-sm-spacing: 0.05em;
+
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 20px;
+  --space-5: 28px;
+  --space-6: 36px;
+  --container-max: 1280px;
+  --gutter: 24px;
+  --margin-desktop: 48px;
+  --margin-mobile: 16px;
+}
+
+@theme inline {
+  --font-sans: var(--font-ui-sans);
+  --font-serif: var(--font-brand-serif);
+}
+
+:root {
+  --admin-bg: #f6f7f5;
+  --admin-sidebar: #eef2ec;
+  --admin-surface: #ffffff;
+  --admin-surface-subtle: #f9faf8;
+  --admin-surface-muted: #eef3ee;
+  --admin-border: #dfe6df;
+  --admin-border-strong: #c7d4c8;
+  --admin-text: #111827;
+  --admin-text-muted: #526056;
+  --admin-text-soft: #6d786f;
+  --admin-accent: #147c43;
+  --admin-accent-hover: #0f6b39;
+  --admin-accent-soft: #e8f6ed;
+  --admin-warning: #815600;
+  --admin-warning-soft: #fff2cc;
+  --admin-danger: #a72525;
+  --admin-danger-soft: #ffe8e4;
+  --admin-info: #265f90;
+  --admin-info-soft: #e5f2ff;
+  --admin-radius: 10px;
+  --admin-radius-sm: 8px;
+  --admin-shadow: 0 1px 2px rgba(17, 24, 39, 0.05);
+  --admin-shadow-popover: 0 16px 36px rgba(17, 24, 39, 0.14);
+  --admin-control-height: 42px;
+  --admin-transition: 160ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: light;
+  background: var(--bg-page) !important;
+}
+
+body {
+  min-height: 100%;
+  background: var(--bg-page) !important;
+  color: var(--text-primary);
+  font-family: var(--font-ui-sans), "Segoe UI", sans-serif;
+  font-size: var(--type-body-md-size);
+  line-height: var(--type-body-md-line);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--brand-primary) 76%, #102f1c 24%);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand-primary) 28%, white 72%);
+  color: var(--deep-earth);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

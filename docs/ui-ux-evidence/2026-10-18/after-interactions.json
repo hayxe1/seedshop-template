@@ -1,0 +1,33 @@
+{
+  "phase": "after",
+  "mode": "one diagnostic trial/action in Chrome desktop local production; explicit 500ms response delays; not INP or a statistical latency result",
+  "rows": [
+    {
+      "name": "cart-add",
+      "resultMs": 18,
+      "feedbackMs": 1.0999999940395355,
+      "result": "one unit in local cart; no server request required"
+    },
+    {
+      "name": "category-filter-delayed",
+      "resultMs": 913,
+      "feedbackMs": null,
+      "injectedDelayMs": 500,
+      "result": "selected category and updated results visible; no independent pending label in either version"
+    },
+    {
+      "name": "save-failed-delayed",
+      "resultMs": 896,
+      "feedbackMs": 2.5,
+      "injectedDelayMs": 500,
+      "inputPreserved": true
+    },
+    {
+      "name": "save-success-delayed",
+      "resultMs": 585,
+      "feedbackMs": 1.9000000059604645,
+      "injectedDelayMs": 500,
+      "successVisible": true
+    }
+  ]
+}

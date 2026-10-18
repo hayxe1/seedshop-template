@@ -1,0 +1,802 @@
+{
+  "date": "2026-10-17",
+  "mode": "Chrome local dev, synthetic isolated E2E DB; no external payments/messages",
+  "fixtures": [
+    {
+      "id": "cmvc2gnrh0024noj9qw4xygpw",
+      "slug": "ux-review-tomat-20",
+      "name": "ДЕМО Томат Алый маяк F1 — для теплицы и балкона, упаковка 20 семян",
+      "packSize": "20 семян",
+      "stock": 2
+    },
+    {
+      "id": "cmvc2gnsc0025noj9g6c5t93z",
+      "slug": "ux-review-tomat-01g",
+      "name": "ДЕМО Томат Алый маяк F1 — другая фасовка 0,1 г",
+      "packSize": "0,1 г",
+      "stock": 25
+    },
+    {
+      "id": "cmvc2gnsr0026noj9m93droty",
+      "slug": "ux-review-empty",
+      "name": "ДЕМО Томат Ёлочка — неполные характеристики",
+      "packSize": null,
+      "stock": 2
+    },
+    {
+      "id": "cmvc2gntl0027noj9q7ijkgfv",
+      "slug": "ux-review-broken",
+      "name": "ДЕМО Томат — повреждённая ссылка на фото",
+      "packSize": "20 семян",
+      "stock": 0
+    },
+    {
+      "id": "cmvc2gnu00028noj995p93w3j",
+      "slug": "ux-review-zero",
+      "name": "ДЕМО Томат — опубликованный нулевой остаток",
+      "packSize": "20 семян",
+      "stock": 0
+    }
+  ],
+  "screens": [
+    {
+      "name": "home-desktop",
+      "url": "/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 5923,
+      "firstProductY": 810
+    },
+    {
+      "name": "catalog-desktop",
+      "url": "/catalog",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 5410,
+      "firstProductY": 814.53125
+    },
+    {
+      "name": "mixed-desktop",
+      "url": "/catalog?q=ДЕМО&sort=newest",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 5709,
+      "firstProductY": 874.53125
+    },
+    {
+      "name": "product-desktop",
+      "url": "/product/ux-review-tomat-20",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 3811,
+      "firstProductY": 2791.890625
+    },
+    {
+      "name": "editor-desktop",
+      "url": "/admin/catalog/products/fixture",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 3884,
+      "firstProductY": null
+    },
+    {
+      "name": "new-editor-desktop",
+      "url": "/admin/catalog/products/new",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 3862,
+      "firstProductY": null
+    },
+    {
+      "name": "empty-desktop",
+      "url": "/catalog?q=неттакоготовара",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 2431,
+      "firstProductY": null
+    },
+    {
+      "name": "filtered-desktop",
+      "url": "/catalog?q=ДЕМО&manufacturer=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B5%20%D1%85%D0%BE%D0%B7%D1%8F%D0%B9%D1%81%D1%82%D0%B2%D0%BE&priceTo=100",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 2431,
+      "firstProductY": null
+    },
+    {
+      "name": "selection-desktop",
+      "url": "/selection",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 1286,
+      "firstProductY": null
+    },
+    {
+      "name": "calendar-desktop",
+      "url": "/calendar",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 1519,
+      "firstProductY": null
+    },
+    {
+      "name": "sets-desktop",
+      "url": "/sets",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 2081,
+      "firstProductY": null
+    },
+    {
+      "name": "home-mobile",
+      "url": "/",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 10126,
+      "firstProductY": 762.4375
+    },
+    {
+      "name": "catalog-mobile",
+      "url": "/catalog",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 9323,
+      "firstProductY": 1027.3125
+    },
+    {
+      "name": "mixed-mobile",
+      "url": "/catalog?q=ДЕМО&sort=newest",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 9653,
+      "firstProductY": 1087.3125
+    },
+    {
+      "name": "product-mobile",
+      "url": "/product/ux-review-tomat-20",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 6043,
+      "firstProductY": 4142.234375
+    },
+    {
+      "name": "editor-mobile",
+      "url": "/admin/catalog/products/fixture",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 5440,
+      "firstProductY": null
+    },
+    {
+      "name": "new-editor-mobile",
+      "url": "/admin/catalog/products/new",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 5194,
+      "firstProductY": null
+    },
+    {
+      "name": "empty-mobile",
+      "url": "/catalog?q=неттакоготовара",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 1844,
+      "firstProductY": null
+    },
+    {
+      "name": "filtered-mobile",
+      "url": "/catalog?q=ДЕМО&manufacturer=%D0%94%D0%B5%D0%BC%D0%BE%D0%BD%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B5%20%D1%85%D0%BE%D0%B7%D1%8F%D0%B9%D1%81%D1%82%D0%B2%D0%BE&priceTo=100",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 1960,
+      "firstProductY": null
+    },
+    {
+      "name": "selection-mobile",
+      "url": "/selection",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 1587,
+      "firstProductY": null
+    },
+    {
+      "name": "calendar-mobile",
+      "url": "/calendar",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 1970,
+      "firstProductY": null
+    },
+    {
+      "name": "sets-mobile",
+      "url": "/sets",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 2503,
+      "firstProductY": null
+    },
+    {
+      "name": "broken-mobile",
+      "url": "/product/ux-review-broken",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 5967,
+      "firstProductY": 4066.859375
+    },
+    {
+      "name": "missing-mobile",
+      "url": "/product/ux-review-empty",
+      "width": 390,
+      "scrollWidth": 409,
+      "height": 4976,
+      "firstProductY": 3075.890625
+    },
+    {
+      "name": "cart-mobile",
+      "url": "/cart",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 1543,
+      "firstProductY": 359
+    },
+    {
+      "name": "checkout-mobile",
+      "url": "/checkout",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 2525,
+      "firstProductY": null
+    },
+    {
+      "name": "cart-error-mobile",
+      "url": "/cart",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 1685,
+      "firstProductY": 501
+    },
+    {
+      "name": "editor-narrow",
+      "url": "/admin/catalog/products/fixture",
+      "width": 320,
+      "scrollWidth": 320,
+      "height": 5526,
+      "firstProductY": null
+    },
+    {
+      "name": "editor-draft",
+      "url": "/admin/catalog/products/fixture",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 5586,
+      "firstProductY": null
+    }
+  ],
+  "observations": {
+    "cards": [
+      {
+        "text": "ТоматыНовинкаОсталось 2ДЕМО Томат Алый маяк F1 — для теплицы и балкона, упаковка 20 семянДемонстрационный товар для проверки фасовки, наличия и длинного русского названия.149 ₽20 семянВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 1079.3125,
+          "width": 366,
+          "height": 545.640625,
+          "top": 1079.3125,
+          "right": 378,
+          "bottom": 1624.953125,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 195,
+          "naturalHeight": 233,
+          "rect": {
+            "x": 20,
+            "y": 1087.3125,
+            "width": 350,
+            "height": 132,
+            "top": 1087.3125,
+            "right": 370,
+            "bottom": 1219.3125,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ОгурцыНовинкаМожно заказатьОгурец — ДЕМОДемонстрационный пример • условная цена90 ₽1 демонстрационная упаковкаВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 1636.953125,
+          "width": 366,
+          "height": 472.765625,
+          "top": 1636.953125,
+          "right": 378,
+          "bottom": 2109.71875,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 195,
+          "naturalHeight": 233,
+          "rect": {
+            "x": 20,
+            "y": 1644.953125,
+            "width": 350,
+            "height": 132,
+            "top": 1644.953125,
+            "right": 370,
+            "bottom": 1776.953125,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ТоматыНовинкаМожно заказатьТомат — ДЕМОДемонстрационный пример • условная цена120 ₽1 демонстрационная упаковкаВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 2121.71875,
+          "width": 366,
+          "height": 472.765625,
+          "top": 2121.71875,
+          "right": 378,
+          "bottom": 2594.484375,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 195,
+          "naturalHeight": 233,
+          "rect": {
+            "x": 20,
+            "y": 2129.71875,
+            "width": 350,
+            "height": 132,
+            "top": 2129.71875,
+            "right": 370,
+            "bottom": 2261.71875,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ТоматыПод заказДЕМО Томат — опубликованный нулевой остатокДемонстрационный товар для проверки фасовки, наличия и длинного русского названия.149 ₽20 семянПод заказПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 2606.484375,
+          "width": 366,
+          "height": 522.25,
+          "top": 2606.484375,
+          "right": 378,
+          "bottom": 3128.734375,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 195,
+          "naturalHeight": 233,
+          "rect": {
+            "x": 20,
+            "y": 2614.484375,
+            "width": 350,
+            "height": 132,
+            "top": 2614.484375,
+            "right": 370,
+            "bottom": 2746.484375,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ТоматыПод заказДЕМО Томат — повреждённая ссылка на фотоДемонстрационный товар для проверки фасовки, наличия и длинного русского названия.149 ₽20 семянПод заказПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 3140.734375,
+          "width": 366,
+          "height": 522.25,
+          "top": 3140.734375,
+          "right": 378,
+          "bottom": 3662.984375,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "rect": {
+            "x": 20,
+            "y": 3148.734375,
+            "width": 350,
+            "height": 132,
+            "top": 3148.734375,
+            "right": 370,
+            "bottom": 3280.734375,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ТоматыОсталось 2ДЕМО Томат Ёлочка — неполные характеристикиДемонстрационный товар для проверки фасовки, наличия и длинного русского названия.149 ₽Фасовка уточняетсяВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 3674.984375,
+          "width": 366,
+          "height": 522.25,
+          "top": 3674.984375,
+          "right": 378,
+          "bottom": 4197.234375,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "rect": {
+            "x": 20,
+            "y": 3682.984375,
+            "width": 350,
+            "height": 132,
+            "top": 3682.984375,
+            "right": 370,
+            "bottom": 3814.984375,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ТоматыМожно заказатьДЕМО Томат Алый маяк F1 — другая фасовка 0,1 гДемонстрационный товар для проверки фасовки, наличия и длинного русского названия.149 ₽0,1 гВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 4209.234375,
+          "width": 366,
+          "height": 522.25,
+          "top": 4209.234375,
+          "right": 378,
+          "bottom": 4731.484375,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "rect": {
+            "x": 20,
+            "y": 4217.234375,
+            "width": 350,
+            "height": 132,
+            "top": 4217.234375,
+            "right": 370,
+            "bottom": 4349.234375,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ТоматыМожно заказатьТомат тестовый 7 — ДЕМОДемонстрационный пример • условная цена101 ₽1 демонстрационная упаковкаВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 4743.484375,
+          "width": 366,
+          "height": 472.765625,
+          "top": 4743.484375,
+          "right": 378,
+          "bottom": 5216.25,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 195,
+          "naturalHeight": 233,
+          "rect": {
+            "x": 20,
+            "y": 4751.484375,
+            "width": 350,
+            "height": 132,
+            "top": 4751.484375,
+            "right": 370,
+            "bottom": 4883.484375,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ТоматыМожно заказатьТомат тестовый 6 — ДЕМОДемонстрационный пример • условная цена100 ₽1 демонстрационная упаковкаВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 5228.25,
+          "width": 366,
+          "height": 472.765625,
+          "top": 5228.25,
+          "right": 378,
+          "bottom": 5701.015625,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 195,
+          "naturalHeight": 233,
+          "rect": {
+            "x": 20,
+            "y": 5236.25,
+            "width": 350,
+            "height": 132,
+            "top": 5236.25,
+            "right": 370,
+            "bottom": 5368.25,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ТоматыМожно заказатьТомат тестовый 5 — ДЕМОДемонстрационный пример • условная цена99 ₽1 демонстрационная упаковкаВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 5713.015625,
+          "width": 366,
+          "height": 472.765625,
+          "top": 5713.015625,
+          "right": 378,
+          "bottom": 6185.78125,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 195,
+          "naturalHeight": 233,
+          "rect": {
+            "x": 20,
+            "y": 5721.015625,
+            "width": 350,
+            "height": 132,
+            "top": 5721.015625,
+            "right": 370,
+            "bottom": 5853.015625,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ТоматыМожно заказатьТомат тестовый 4 — ДЕМОДемонстрационный пример • условная цена98 ₽1 демонстрационная упаковкаВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 6197.78125,
+          "width": 366,
+          "height": 472.765625,
+          "top": 6197.78125,
+          "right": 378,
+          "bottom": 6670.546875,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 195,
+          "naturalHeight": 233,
+          "rect": {
+            "x": 20,
+            "y": 6205.78125,
+            "width": 350,
+            "height": 132,
+            "top": 6205.78125,
+            "right": 370,
+            "bottom": 6337.78125,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ТоматыМожно заказатьТомат тестовый 3 — ДЕМОДемонстрационный пример • условная цена97 ₽1 демонстрационная упаковкаВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 6682.546875,
+          "width": 366,
+          "height": 472.765625,
+          "top": 6682.546875,
+          "right": 378,
+          "bottom": 7155.3125,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 195,
+          "naturalHeight": 233,
+          "rect": {
+            "x": 20,
+            "y": 6690.546875,
+            "width": 350,
+            "height": 132,
+            "top": 6690.546875,
+            "right": 370,
+            "bottom": 6822.546875,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ТоматыМожно заказатьТомат тестовый 2 — ДЕМОДемонстрационный пример • условная цена96 ₽1 демонстрационная упаковкаВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 7167.3125,
+          "width": 366,
+          "height": 472.765625,
+          "top": 7167.3125,
+          "right": 378,
+          "bottom": 7640.078125,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 195,
+          "naturalHeight": 233,
+          "rect": {
+            "x": 20,
+            "y": 7175.3125,
+            "width": 350,
+            "height": 132,
+            "top": 7175.3125,
+            "right": 370,
+            "bottom": 7307.3125,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "ТоматыМожно заказатьТомат тестовый 1 — ДЕМОДемонстрационный пример • условная цена95 ₽1 демонстрационная упаковкаВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 7652.078125,
+          "width": 366,
+          "height": 472.765625,
+          "top": 7652.078125,
+          "right": 378,
+          "bottom": 8124.84375,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 195,
+          "naturalHeight": 233,
+          "rect": {
+            "x": 20,
+            "y": 7660.078125,
+            "width": 350,
+            "height": 132,
+            "top": 7660.078125,
+            "right": 370,
+            "bottom": 7792.078125,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "МорковьМожно заказатьМорковь — ДЕМОДемонстрационный пример • условная цена60 ₽1 демонстрационная упаковкаВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 8136.84375,
+          "width": 366,
+          "height": 472.765625,
+          "top": 8136.84375,
+          "right": 378,
+          "bottom": 8609.609375,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "rect": {
+            "x": 20,
+            "y": 8144.84375,
+            "width": 350,
+            "height": 132,
+            "top": 8144.84375,
+            "right": 370,
+            "bottom": 8276.84375,
+            "left": 20
+          }
+        }
+      },
+      {
+        "text": "КукурузаМожно заказатьКукуруза — ДЕМОДемонстрационный пример • условная цена75 ₽1 демонстрационная упаковкаВ корзинуПодробнее",
+        "rect": {
+          "x": 12,
+          "y": 8621.609375,
+          "width": 366,
+          "height": 472.765625,
+          "top": 8621.609375,
+          "right": 378,
+          "bottom": 9094.375,
+          "left": 12
+        },
+        "image": {
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "rect": {
+            "x": 20,
+            "y": 8629.609375,
+            "width": 350,
+            "height": 132,
+            "top": 8629.609375,
+            "right": 370,
+            "bottom": 8761.609375,
+            "left": 20
+          }
+        }
+      }
+    ],
+    "brokenImages": [
+      {
+        "alt": "ДЕМО Томат — повреждённая ссылка на фото",
+        "src": "/_next/image?url=%2Fproduct-images%2Fux-review-missing.png&w=3840&q=75"
+      }
+    ],
+    "sku": {
+      "value": "QW4XYGPW",
+      "resultHeading": "Ничего не найдено"
+    },
+    "search": [
+      {
+        "query": "Алый маяк F1",
+        "heading": "2 товара",
+        "links": [
+          "ДЕМО Томат Алый маяк F1 — для теплицы и балкона, упаковка 20 семян",
+          "ДЕМО Томат Алый маяк F1 — другая фасовка 0,1 г"
+        ]
+      },
+      {
+        "query": "Алый маяк Ф1",
+        "heading": "Ничего не найдено",
+        "links": []
+      },
+      {
+        "query": "  Алый   маяк F1  ",
+        "heading": "2 товара",
+        "links": [
+          "ДЕМО Томат Алый маяк F1 — для теплицы и балкона, упаковка 20 семян",
+          "ДЕМО Томат Алый маяк F1 — другая фасовка 0,1 г"
+        ]
+      },
+      {
+        "query": "Елочка",
+        "heading": "1 товар",
+        "links": [
+          "ДЕМО Томат Ёлочка — неполные характеристики"
+        ]
+      },
+      {
+        "query": "помидор",
+        "heading": "13 товаров",
+        "links": [
+          "Томат — ДЕМО",
+          "Томат тестовый 7 — ДЕМО",
+          "Томат тестовый 6 — ДЕМО",
+          "Томат тестовый 5 — ДЕМО",
+          "Томат тестовый 4 — ДЕМО",
+          "Томат тестовый 3 — ДЕМО",
+          "Томат тестовый 2 — ДЕМО",
+          "Томат тестовый 1 — ДЕМО",
+          "ДЕМО Томат Алый маяк F1 — для теплицы и балкона, упаковка 20 семян",
+          "ДЕМО Томат — опубликованный нулевой остаток",
+          "ДЕМО Томат — повреждённая ссылка на фото",
+          "ДЕМО Томат Ёлочка — неполные характеристики",
+          "ДЕМО Томат Алый маяк F1 — другая фасовка 0,1 г"
+        ]
+      },
+      {
+        "query": "Демонстрационное хозяйство",
+        "heading": "4 товара",
+        "links": [
+          "ДЕМО Томат Алый маяк F1 — для теплицы и балкона, упаковка 20 семян",
+          "ДЕМО Томат — опубликованный нулевой остаток",
+          "ДЕМО Томат — повреждённая ссылка на фото",
+          "ДЕМО Томат Алый маяк F1 — другая фасовка 0,1 г"
+        ]
+      }
+    ],
+    "returnHref": "/catalog?q=%D0%94%D0%95%D0%9C%D0%9E&sort=newest",
+    "explicitReturn": {
+      "beforeY": 905,
+      "afterY": 0,
+      "url": "http://127.0.0.1:3110/catalog?q=%D0%94%D0%95%D0%9C%D0%9E&sort=newest"
+    },
+    "browserBack": {
+      "beforeY": 905,
+      "afterY": 905,
+      "url": "http://127.0.0.1:3110/catalog?q=%D0%94%D0%95%D0%9C%D0%9E&sort=newest"
+    },
+    "unitsAndStock": "Главная\n/\nКаталог\n/\nТоматы\n/\nДЕМО Томат Алый маяк F1 — для теплицы и балкона, упаковка 20 семян\n\nДЕМОНСТРАЦИОННОЕ ХОЗЯЙСТВО\n\nДЕМО Томат Алый маяк F1 — для теплицы и балкона, упаковка 20 семян\n\nДемонстрационный товар для проверки фасовки, наличия и длинного русского названия.\n\n20 семян\nдля новичков\n75 дней до созревания\n\n149 ₽ за упаковку\n\nДоступно под заказ\nКоличество упаковок\n−\n+\n5 шт.\n10 шт.\n20 шт.\n\nВ наличии 2 шт.\n\n18 шт. — под заказ. Менеджер согласует с вами срок поставки до оплаты.\n\nИтого: 2 980 ₽\n\nПод заказ\nЗаказать 20 шт.\n2 980 ₽\nВ корзину\n\n01\n\nО сорте\n\nСинтетические сведения для исследования интерфейса. Не являются агрономической рекомендацией.\n\n02\n\nПаспорт семян\nКатегория\nТоматы\nФасовка\n20 семян\nПроизводитель\nДемонстрационное хозяйство\nМесто выращивания\nТеплица, Балкон\nУровень опыта\nдля новичков\nСозревание\n75 дней\nАртикул\nQW4XYGPW\n\n03\n\nКалендарь выращивания\n\nСроки ориентировочные: учитывайте регион, погоду и способ выращивания.\n\nПосев\nМарт, Апрель\nПересадка\nМай\nСбор Урожая\nИюль, Август\n\n04\n\nКак получить хороший результат\nСверьте сроки посева с климатом вашего региона и рекомендациями на упаковке.\nДо появления всходов поддерживайте почву равномерно влажной, но не переувлажняйте её.\nПодписывайте посевы названием сорта и датой — так проще сравнить результат и спланировать следующий сезон.\n\nЕЩЁ В ЭТОЙ ТЕМЕ\n\nПохожие семена\nСмотреть категорию →\nТоматы\nНовинка\nМожно заказать\nТомат — ДЕМО\n\nДемонстрационный пример • условная цена\n\n120 ₽\n1 демонстрационная упаковка\nВ корзину\nПодробнее\nТоматы\nМожно заказать\nТомат тестовый 1 — ДЕМО\n\nДемонстрационный пример • условная цена\n\n95 ₽\n1 демонстрационная упаковка\nВ корзину\nПодробнее\nТоматы\nМожно заказать\nТомат тестовый 2 — ДЕМО\n\nДемонстрационный пример • условная цена\n\n96 ₽\n1 демонстрационная упаковка\nВ корзину\nПодробнее",
+    "quantity99": "99",
+    "invalidPhoneFocus": true,
+    "upload": "Нажмите или перетащите файл\nPNG, JPG, WEBP, AVIF\npackage.png\n27 КБ\nНе удалось загрузить изображение.\nУбрать",
+    "draftNotice": true,
+    "stickyExists": 5,
+    "textProbe": {
+      "method": "Temporary doubling computed font-size in main, NOT native browser zoom or WCAG certification",
+      "overflow": true
+    },
+    "accessRedirect": true
+  }
+}

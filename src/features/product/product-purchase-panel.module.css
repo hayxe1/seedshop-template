@@ -1,0 +1,228 @@
+.wrap {
+  border-block: 1px solid var(--line-soft);
+  padding: 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.availability,
+.unavailable {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 720;
+}
+
+.availability span,
+.unavailable span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--action-primary);
+}
+
+.unavailable {
+  color: #8a2f24;
+}
+
+.unavailable span {
+  background: #a33a2b;
+}
+
+.quantityRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.label {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.controls button,
+.controls input {
+  height: 48px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+}
+
+.controls button {
+  width: 48px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.controls input {
+  width: 64px;
+  text-align: center;
+  font: inherit;
+  font-weight: 650;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.preset,
+.presetActive {
+  min-height: 44px;
+  border-radius: var(--radius-pill);
+  padding: 7px 13px;
+  font-size: 16px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.preset {
+  border: 1px solid var(--line-soft);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.presetActive {
+  border: 1px solid var(--brand-primary);
+  background: color-mix(in srgb, var(--brand-primary) 10%, white 90%);
+  color: var(--brand-primary-active);
+}
+
+.stockHint {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.total {
+  margin: 0;
+  color: var(--accent-text);
+  font-weight: 760;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preorderBtn {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font: inherit;
+  cursor: pointer;
+}
+
+.preorderBtn:hover {
+  border-color: var(--brand-primary);
+}
+
+.preorderBtn:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+}
+
+.primaryBtn {
+  min-height: 48px;
+  border-radius: var(--radius-pill);
+  padding: 10px 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.primaryBtn {
+  border: 0;
+  background: var(--action-primary);
+  color: var(--on-primary);
+  cursor: pointer;
+}
+
+.primaryBtn:disabled {
+  background: color-mix(in srgb, var(--text-secondary) 30%, var(--bg-soft) 70%);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+.mobileSticky {
+  display: none;
+}
+
+.receiving {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.receiving a { color: var(--accent-text); text-underline-offset: 3px; }
+.mobileSticky small { display: block; font-size: 14px; line-height: 1.4; color: var(--text-secondary); }
+
+@media (max-width: 640px) {
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions > * {
+    width: 100%;
+  }
+
+  .mobileSticky {
+    position: fixed;
+    z-index: 35;
+    left: 8px;
+    right: 8px;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    min-height: 64px;
+    border: 1px solid color-mix(in srgb, var(--brand-primary) 22%, var(--line-soft) 78%);
+    border-radius: var(--radius-md);
+    padding: 8px 8px 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: color-mix(in srgb, var(--bg-surface) 94%, transparent 6%);
+    box-shadow: 0 16px 40px rgba(20, 38, 27, 0.22);
+    backdrop-filter: blur(14px);
+  }
+
+  .mobileSticky button {
+    min-height: 48px;
+    border: 0;
+    border-radius: var(--radius-pill);
+    padding: 0 20px;
+    background: var(--action-primary);
+    color: var(--on-primary);
+    font: inherit;
+    font-weight: 720;
+  }
+
+  .mobileSticky button:disabled {
+    background: var(--bg-soft);
+    color: var(--text-secondary);
+  }
+}

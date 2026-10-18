@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-17",
+  "candidateIds": 60,
+  "proposedDecisions": 12,
+  "statusCounts": {
+    "уже покрыто": 10,
+    "требуется проверить": 15,
+    "полезно сейчас": 19,
+    "нужны данные": 12,
+    "отложить": 4,
+    "вне области": 0
+  },
+  "localLinksChecked": 116,
+  "missingLinks": [],
+  "addressedScenarios": {
+    "main": 8,
+    "focused": 1
+  },
+  "existingFilesUnchanged": {
+    "checked": 261,
+    "changed": [],
+    "addedProtected": []
+  },
+  "previewPortClosed": true,
+  "boundaries": [
+    "Chrome dev on disposable loopback E2E DB",
+    "synthetic products and orders",
+    "mock payments, external messaging disabled",
+    "native mobile keyboard, screen reader and native zoom not verified",
+    "no production or conversion claim"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-18",
+  "linkedFilesChecked": 56,
+  "gallery": [
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "comparisonsVisible": 5,
+      "imagesDecoded": true
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "comparisonsVisible": 5,
+      "imagesDecoded": true
+    }
+  ],
+  "browserErrors": [],
+  "screenOverflows": [],
+  "lcpProbe": {
+    "protocol": "one diagnostic cold mobile trial per phase, identifies LCP element; not a replacement for 36-run series",
+    "rows": [
+      {
+        "phase": "before",
+        "time": 1044,
+        "tag": "P",
+        "text": "Выбирайте семена овощей, зелени и цветов по сроку посева, месту выращивания и уровню опыта. Цены и наличие в карточках актуальны на момент заказа.",
+        "url": "",
+        "size": 55998,
+        "className": "catalog-module__Q94AOW__subtitle"
+      },
+      {
+        "phase": "after",
+        "time": 1624,
+        "tag": "HEADER",
+        "text": "Магазин семянКаталогПодборНаборыКалендарьДоставкаКонтактыПоиск по каталогуПоискМенюF.A.QКорзина·0",
+        "url": "http://127.0.0.1:3114/home/soft-garden-background.avif",
+        "size": 25350,
+        "className": "storefront-header-module__2P4N8G__header"
+      }
+    ]
+  }
+}

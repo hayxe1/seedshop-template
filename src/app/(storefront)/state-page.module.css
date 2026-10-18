@@ -1,0 +1,93 @@
+.page {
+  width: min(1040px, 100% - 32px);
+  min-height: 62vh;
+  margin-inline: auto;
+  padding: 64px 0;
+  display: grid;
+  grid-template-columns: minmax(180px, 0.55fr) minmax(0, 1fr);
+  gap: clamp(32px, 8vw, 110px);
+  align-items: center;
+}
+
+.code {
+  color: color-mix(in srgb, var(--brand-primary) 22%, var(--soft-clay) 78%);
+  font-family: var(--font-brand-serif), Georgia, serif;
+  font-size: clamp(120px, 22vw, 260px);
+  font-weight: 700;
+  line-height: 0.8;
+}
+
+.content > p {
+  margin: 0 0 8px;
+  color: var(--accent-text);
+  font-size: 16px;
+  font-weight: 760;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.content h1 {
+  margin: 0;
+  font-family: var(--font-brand-serif), Georgia, serif;
+  font-size: clamp(38px, 6vw, 64px);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.content > span {
+  max-width: 560px;
+  margin-top: 16px;
+  display: block;
+  color: var(--text-secondary);
+  font-size: 20px;
+  line-height: 1.65;
+}
+
+.content small {
+  margin-top: 14px;
+  display: block;
+  color: var(--text-secondary);
+}
+
+.actions {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.actions a,
+.actions button {
+  min-height: 48px;
+  border: 1px solid var(--brand-primary);
+  border-radius: var(--radius-pill);
+  padding: 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--action-primary);
+  color: var(--on-primary);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 720;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.actions .secondary {
+  border-color: var(--line-soft);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+  .page {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 0 64px;
+  }
+
+  .code {
+    font-size: 120px;
+  }
+}

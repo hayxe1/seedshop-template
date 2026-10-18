@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Seedshop Template commerce maintenance every five minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+Persistent=true
+RandomizedDelaySec=15s
+Unit=seedshop-template-commerce.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,219 @@
+name: Production
+
+on:
+  workflow_run:
+    workflows:
+      - CI
+    types:
+      - completed
+    branches:
+      - client-production-disabled
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: Roll back to the previous healthy production image
+        type: choice
+        required: true
+        default: rollback
+        options:
+          - rollback
+
+run-name: Production ${{ github.event_name == 'workflow_run' && 'auto deploy' || inputs.operation }} by @${{ github.actor }}
+
+concurrency:
+  group: production
+  cancel-in-progress: false
+
+jobs:
+  verify-ci:
+    if: >-
+      github.event_name == 'workflow_run' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      contents: read
+    outputs:
+      digest: ${{ steps.image.outputs.digest }}
+      revision: ${{ steps.verify.outputs.revision }}
+      should_deploy: ${{ steps.verify.outputs.should_deploy }}
+    steps:
+      - name: Verify triggering CI run
+        id: verify
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CI_RUN_ID: ${{ github.event.workflow_run.id }}
+          EXPECTED_SHA: ${{ github.event.workflow_run.head_sha }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          run_details="$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/${REPOSITORY}/actions/runs/${CI_RUN_ID}" \
+            --jq '[.id, .name, .event, .head_branch, .head_sha, .status, (.conclusion // "pending"), .run_attempt, .html_url] | @tsv')"
+          IFS=$'\t' read -r run_id workflow_name event head_branch head_sha status conclusion run_attempt run_url <<<"${run_details}"
+
+          echo "CI run ${run_id}, attempt ${run_attempt}: status=${status}, conclusion=${conclusion}"
+          echo "${run_url}"
+          [[ "${run_id}" == "${CI_RUN_ID}" ]]
+          [[ "${workflow_name}" == "CI" ]]
+          [[ "${event}" == "push" ]]
+          [[ "${head_branch}" == "main" ]]
+          [[ "${head_sha}" == "${EXPECTED_SHA}" ]]
+          [[ "${status}" == "completed" ]]
+          [[ "${conclusion}" == "success" ]]
+
+          echo "run_id=${run_id}" >> "${GITHUB_OUTPUT}"
+          echo "run_attempt=${run_attempt}" >> "${GITHUB_OUTPUT}"
+          echo "revision=${EXPECTED_SHA}" >> "${GITHUB_OUTPUT}"
+
+          current_main="$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "/repos/${REPOSITORY}/git/ref/heads/main" \
+            --jq '.object.sha')"
+          if [[ "${current_main}" != "${EXPECTED_SHA}" ]]; then
+            echo "CI revision ${EXPECTED_SHA} was superseded by ${current_main}; skipping stale deployment."
+            echo "should_deploy=false" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+
+          echo "Verified current successful CI for ${EXPECTED_SHA}."
+          echo "should_deploy=true" >> "${GITHUB_OUTPUT}"
+
+      - name: Download verified image digest
+        id: image
+        if: steps.verify.outputs.should_deploy == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CI_RUN_ID: ${{ steps.verify.outputs.run_id }}
+          CI_RUN_ATTEMPT: ${{ steps.verify.outputs.run_attempt }}
+          EXPECTED_SHA: ${{ steps.verify.outputs.revision }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          artifact_name="production-image-digest-${EXPECTED_SHA}-${CI_RUN_ATTEMPT}"
+          download_dir="${RUNNER_TEMP}/production-image"
+          digest_file="${download_dir}/digest"
+          install -d "${download_dir}"
+
+          for attempt in {1..6}; do
+            rm -f "${digest_file}"
+            if gh run download "${CI_RUN_ID}" \
+              --repo "${REPOSITORY}" \
+              --name "${artifact_name}" \
+              --dir "${download_dir}"; then
+              break
+            fi
+
+            if [[ "${attempt}" == "6" ]]; then
+              echo "Could not download ${artifact_name} from CI run ${CI_RUN_ID}." >&2
+              exit 1
+            fi
+
+            echo "Digest artifact is not available yet; retrying in 5 seconds."
+            sleep 5
+          done
+
+          image_digest="$(tr -d '\r\n' < "${digest_file}")"
+          [[ "${image_digest}" =~ ^sha256:[0-9a-f]{64}$ ]]
+          echo "digest=${image_digest}" >> "${GITHUB_OUTPUT}"
+
+  deploy:
+    if: >-
+      always() &&
+      (
+        (
+          github.event_name == 'workflow_run' &&
+          needs.verify-ci.result == 'success' &&
+          needs.verify-ci.outputs.should_deploy == 'true'
+        ) ||
+        (
+          github.event_name == 'workflow_dispatch' &&
+          github.ref == 'refs/heads/main' &&
+          inputs.operation == 'rollback'
+        )
+      )
+    needs:
+      - verify-ci
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      packages: read
+    environment:
+      name: production
+      url: ${{ vars.SITE_URL }}
+    env:
+      PROD_HOST: ${{ vars.PROD_HOST }}
+      PROD_SSH_KNOWN_HOSTS: ${{ vars.PROD_SSH_KNOWN_HOSTS }}
+      PROD_DEPLOY_SSH_KEY: ${{ secrets.PROD_DEPLOY_SSH_KEY }}
+      GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      IMAGE_DIGEST: ${{ needs.verify-ci.outputs.digest }}
+      RELEASE_SHA: ${{ needs.verify-ci.outputs.revision }}
+    steps:
+      - name: Prepare pinned SSH connection
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${PROD_HOST}"
+          test -n "${PROD_SSH_KNOWN_HOSTS}"
+          test -n "${PROD_DEPLOY_SSH_KEY}"
+          install -d -m 700 "${HOME}/.ssh"
+          printf '%s\n' "${PROD_SSH_KNOWN_HOSTS}" > "${HOME}/.ssh/known_hosts"
+          printf '%s\n' "${PROD_DEPLOY_SSH_KEY}" > "${HOME}/.ssh/production_deploy"
+          chmod 600 "${HOME}/.ssh/known_hosts" "${HOME}/.ssh/production_deploy"
+
+      - name: Deploy immutable image
+        if: github.event_name == 'workflow_run'
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "${IMAGE_DIGEST}" =~ ^sha256:[0-9a-f]{64}$ ]]
+          [[ "${RELEASE_SHA}" =~ ^[0-9a-f]{40}$ ]]
+          printf '%s' "${GHCR_TOKEN}" | ssh \
+            -i "${HOME}/.ssh/production_deploy" \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            -o ConnectTimeout=15 \
+            "root@${PROD_HOST}" \
+            "deploy ${IMAGE_DIGEST} ${RELEASE_SHA} ${GITHUB_ACTOR}"
+
+          health_json="$(curl --fail --silent --show-error --retry 10 --retry-delay 2 \
+            ${{ vars.SITE_URL }}/api/health)"
+          HEALTH_JSON="${health_json}" EXPECTED_REVISION="${RELEASE_SHA}" node <<'NODE'
+          const health = JSON.parse(process.env.HEALTH_JSON ?? "null");
+          if (
+            health?.ok !== true ||
+            health?.database !== "available" ||
+            health?.release !== process.env.EXPECTED_REVISION
+          ) {
+            throw new Error(`Unexpected production health response: ${JSON.stringify(health)}`);
+          }
+          NODE
+
+      - name: Roll back to previous healthy image
+        if: github.event_name == 'workflow_dispatch' && inputs.operation == 'rollback'
+        shell: bash
+        run: |
+          set -euo pipefail
+          ssh \
+            -i "${HOME}/.ssh/production_deploy" \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            -o ConnectTimeout=15 \
+            "root@${PROD_HOST}" \
+            rollback
+          curl --fail --silent --show-error --retry 10 --retry-delay 2 \
+            ${{ vars.SITE_URL }}/api/health >/dev/null

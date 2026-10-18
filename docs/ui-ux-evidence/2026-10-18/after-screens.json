@@ -1,0 +1,166 @@
+{
+  "phase": "after",
+  "mode": "Local production build, same seven synthetic products and revised representative media",
+  "measures": [
+    {
+      "name": "catalog",
+      "url": "/catalog?manufacturer=%D0%94%D0%B5%D0%BC%D0%BE%3A%20%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0&sort=newest",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 3362,
+      "firstProductY": 844.59375
+    },
+    {
+      "name": "catalog-entry",
+      "url": "/catalog",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 5500,
+      "firstProductY": 784.59375
+    },
+    {
+      "name": "product",
+      "url": "/product/uxp-long",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 3704,
+      "firstProductY": 2622.25
+    },
+    {
+      "name": "editor",
+      "url": "/admin/catalog/products/cmvd0lt0x000014j9homlf4bf",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 3981,
+      "firstProductY": 1594.40625
+    },
+    {
+      "name": "home",
+      "url": "/",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "height": 5897,
+      "firstProductY": 801
+    },
+    {
+      "name": "catalog",
+      "url": "/catalog?manufacturer=%D0%94%D0%B5%D0%BC%D0%BE%3A%20%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0&sort=newest",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 3971,
+      "firstProductY": 788.1875
+    },
+    {
+      "name": "catalog-entry",
+      "url": "/catalog",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 7520,
+      "firstProductY": 663.1875
+    },
+    {
+      "name": "product",
+      "url": "/product/uxp-long",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 5687,
+      "firstProductY": 4049.953125
+    },
+    {
+      "name": "editor",
+      "url": "/admin/catalog/products/cmvd0lt0x000014j9homlf4bf",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 5774,
+      "firstProductY": 2428.015625
+    },
+    {
+      "name": "home",
+      "url": "/",
+      "width": 390,
+      "scrollWidth": 390,
+      "height": 10056,
+      "firstProductY": 753.4375
+    },
+    {
+      "name": "catalog",
+      "url": "/catalog?manufacturer=%D0%94%D0%B5%D0%BC%D0%BE%3A%20%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0&sort=newest",
+      "width": 320,
+      "scrollWidth": 320,
+      "height": 4252,
+      "firstProductY": 810.984375
+    },
+    {
+      "name": "catalog-entry",
+      "url": "/catalog",
+      "width": 320,
+      "scrollWidth": 320,
+      "height": 8122,
+      "firstProductY": 685.984375
+    },
+    {
+      "name": "product",
+      "url": "/product/uxp-long",
+      "width": 320,
+      "scrollWidth": 320,
+      "height": 6085,
+      "firstProductY": 4312.71875
+    },
+    {
+      "name": "editor",
+      "url": "/admin/catalog/products/cmvd0lt0x000014j9homlf4bf",
+      "width": 320,
+      "scrollWidth": 320,
+      "height": 5912,
+      "firstProductY": 2503.609375
+    },
+    {
+      "name": "home",
+      "url": "/",
+      "width": 320,
+      "scrollWidth": 320,
+      "height": 10691,
+      "firstProductY": 761.4375
+    },
+    {
+      "name": "catalog",
+      "url": "/catalog?manufacturer=%D0%94%D0%B5%D0%BC%D0%BE%3A%20%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B0&sort=newest",
+      "width": 768,
+      "scrollWidth": 768,
+      "height": 4375,
+      "firstProductY": 941.03125
+    },
+    {
+      "name": "catalog-entry",
+      "url": "/catalog",
+      "width": 768,
+      "scrollWidth": 768,
+      "height": 7353,
+      "firstProductY": 881.03125
+    },
+    {
+      "name": "product",
+      "url": "/product/uxp-long",
+      "width": 768,
+      "scrollWidth": 768,
+      "height": 4317,
+      "firstProductY": 3209.296875
+    },
+    {
+      "name": "editor",
+      "url": "/admin/catalog/products/cmvd0lt0x000014j9homlf4bf",
+      "width": 768,
+      "scrollWidth": 768,
+      "height": 4788,
+      "firstProductY": 2043.765625
+    },
+    {
+      "name": "home",
+      "url": "/",
+      "width": 768,
+      "scrollWidth": 768,
+      "height": 7539,
+      "firstProductY": 634.140625
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+.notice { border:1px solid var(--admin-border); border-radius:var(--admin-radius); background:var(--admin-surface); padding:16px; color:var(--admin-text); font-size:14px; line-height:1.5; }
+.notice p { margin:0 0 8px; }
+.notice div { display:flex; flex-wrap:wrap; gap:8px; }
+.notice button { min-height:44px; padding:8px 14px; border:1px solid var(--admin-border); border-radius:var(--admin-radius-sm); background:var(--admin-bg); color:var(--admin-text); font:inherit; cursor:pointer; }
+.notice button:first-child { background:var(--admin-accent); color:white; }

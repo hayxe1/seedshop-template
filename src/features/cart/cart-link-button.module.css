@@ -1,0 +1,49 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--action-primary);
+  color: var(--on-action-primary);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.icon {
+  display: none;
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 420px) {
+  .icon {
+    display: block;
+  }
+
+  .label,
+  .separator {
+    display: none;
+  }
+
+  .count {
+    min-width: 18px;
+    min-height: 18px;
+    border-radius: 999px;
+    padding: 0 4px;
+    display: inline-grid;
+    place-items: center;
+    font-size: 11px;
+    line-height: 1;
+  }
+}

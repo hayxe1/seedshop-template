@@ -1,0 +1,61 @@
+{
+  "mode": "Fresh loopback ICU demo database; migrations and actual demo:seed source; no administrator, buyer, order or provider",
+  "products": [
+    {
+      "slug": "demo-cucumber-2",
+      "packSize": "0,1 г",
+      "mainImageUrl": "/demo/package-wide.svg",
+      "inventoryPolicy": "tracked",
+      "stock": 25
+    },
+    {
+      "slug": "demo-fertilizer-5",
+      "packSize": "100 г",
+      "mainImageUrl": "/product-images/demo/fertilizer.png",
+      "inventoryPolicy": "tracked",
+      "stock": 0
+    },
+    {
+      "slug": "demo-flower-4",
+      "packSize": "",
+      "mainImageUrl": "",
+      "inventoryPolicy": "tracked",
+      "stock": 25
+    },
+    {
+      "slug": "demo-pepper-3",
+      "packSize": "10 семян",
+      "mainImageUrl": "/demo/package-square.svg",
+      "inventoryPolicy": "tracked",
+      "stock": 25
+    },
+    {
+      "slug": "demo-soil-6",
+      "packSize": "5 л",
+      "mainImageUrl": "/product-images/demo/soil.png",
+      "inventoryPolicy": "unlimited",
+      "stock": null
+    },
+    {
+      "slug": "demo-tomato-1",
+      "packSize": "20 семян",
+      "mainImageUrl": "/product-images/demo/tomato.png",
+      "inventoryPolicy": "tracked",
+      "stock": 2
+    },
+    {
+      "slug": "demo-tomato-7",
+      "packSize": "20 семян",
+      "mainImageUrl": "/product-images/demo/tomato.png",
+      "inventoryPolicy": "preorder",
+      "stock": null
+    }
+  ],
+  "counts": {
+    "admins": 0,
+    "orders": 0,
+    "sets": 1
+  },
+  "repeatRefused": true,
+  "unchangedAfterRefusal": true
+}

@@ -1,0 +1,465 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum OrderStatus {
+  PENDING   @map("pending")
+  CONFIRMED @map("confirmed")
+  COMPLETED @map("completed")
+  CANCELLED @map("cancelled")
+}
+
+enum OrderItemKind {
+  PRODUCT  @map("product")
+  SEED_SET @map("seed_set")
+  SERVICE  @map("service")
+}
+
+enum PaymentStatus {
+  NOT_STARTED         @map("not_started")
+  PENDING             @map("pending")
+  WAITING_FOR_CAPTURE @map("waiting_for_capture")
+  SUCCEEDED           @map("succeeded")
+  CANCELED            @map("canceled")
+  FAILED              @map("failed")
+  REFUNDED            @map("refunded")
+}
+
+enum FulfillmentStatus {
+  NEW        @map("new")
+  PROCESSING @map("processing")
+  PACKED     @map("packed")
+  SHIPPED    @map("shipped")
+  DELIVERED  @map("delivered")
+  CANCELLED  @map("cancelled")
+}
+
+enum InventoryPolicy {
+  TRACKED   @map("tracked")
+  PREORDER  @map("preorder")
+  UNLIMITED @map("unlimited")
+}
+
+enum InventoryReservationStatus {
+  ACTIVE    @map("active")
+  COMMITTED @map("committed")
+  RELEASED  @map("released")
+  EXPIRED   @map("expired")
+}
+
+enum InventoryMovementReason {
+  SALE       @map("sale")
+  RETURN     @map("return")
+  ADJUSTMENT @map("adjustment")
+}
+
+enum ShippingMethod {
+  MANAGER_QUOTE @map("manager_quote")
+  CDEK_PICKUP   @map("cdek_pickup")
+  LOCAL_COURIER @map("local_courier")
+  SELF_PICKUP   @map("self_pickup")
+}
+
+enum ShipmentStatus {
+  AWAITING_DETAILS @map("awaiting_details")
+  READY            @map("ready")
+  SHIPPED          @map("shipped")
+  DELIVERED        @map("delivered")
+  CANCELED         @map("canceled")
+}
+
+enum NotificationChannel {
+  EMAIL    @map("email")
+  TELEGRAM @map("telegram")
+}
+
+enum NotificationStatus {
+  PENDING @map("pending")
+  SENDING @map("sending")
+  SENT    @map("sent")
+  FAILED  @map("failed")
+}
+
+enum SeedDifficulty {
+  BEGINNER     @map("beginner")
+  INTERMEDIATE @map("intermediate")
+  EXPERIENCED  @map("experienced")
+}
+
+enum LightRequirement {
+  FULL_SUN      @map("full_sun")
+  PARTIAL_SHADE @map("partial_shade")
+  SHADE         @map("shade")
+}
+
+enum SeedSetRevisionRole {
+  DRAFT     @map("draft")
+  PUBLISHED @map("published")
+}
+
+model Category {
+  id             String    @id @default(cuid())
+  name           String
+  slug           String    @unique
+  description    String?
+  seoTitle       String?
+  seoDescription String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  products       Product[]
+}
+
+model Product {
+  id                    String                 @id @default(cuid())
+  name                  String
+  slug                  String                 @unique
+  description           String
+  shortDescription      String?
+  price                 Int
+  mainImageUrl          String?
+  plantingTips          String?
+  isPublished           Boolean                @default(true)
+  isPopularToday        Boolean                @default(false)
+  isNew                 Boolean                @default(false)
+  stock                 Int?
+  inventoryPolicy       InventoryPolicy        @default(TRACKED)
+  manufacturer          String?
+  packSize              String?
+  growingPlaces         String[]               @default([])
+  difficulty            SeedDifficulty?
+  maturityDays          Int?
+  sowMonths             Int[]                  @default([])
+  transplantMonths      Int[]                  @default([])
+  harvestMonths         Int[]                  @default([])
+  lightRequirement      LightRequirement?
+  regionTags            String[]               @default([])
+  categoryId            String
+  seoTitle              String?
+  seoDescription        String?
+  createdAt             DateTime               @default(now())
+  updatedAt             DateTime               @updatedAt
+  category              Category               @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  images                ProductImage[]
+  orderItems            OrderItem[]
+  seedSetItems          SeedSetRevisionItem[]
+  inventoryReservations InventoryReservation[]
+  inventoryMovements    InventoryMovement[]
+
+  @@index([categoryId, isPublished, updatedAt])
+  @@index([isPublished, isPopularToday, updatedAt])
+  @@index([inventoryPolicy, stock])
+}
+
+model ProductImage {
+  id        String   @id @default(cuid())
+  productId String
+  url       String
+  position  Int?
+  createdAt DateTime @default(now())
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+}
+
+model ProductImageAsset {
+  id          String   @id @default(cuid())
+  fileName    String
+  contentType String
+  sizeBytes   Int
+  data        Bytes
+  createdAt   DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model SeedSet {
+  id               String            @id @default(cuid())
+  slug             String            @unique
+  isPublished      Boolean           @default(false)
+  publishedAt      DateTime?
+  draftVersion     Int               @default(1)
+  publishedVersion Int               @default(0)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  revisions        SeedSetRevision[]
+  orderItems       OrderItem[]
+
+  @@index([isPublished, updatedAt])
+}
+
+model SeedSetRevision {
+  id               String                    @id @default(cuid())
+  seedSetId        String
+  role             SeedSetRevisionRole
+  name             String
+  description      String
+  shortDescription String?
+  imageUrl         String?
+  price            Int
+  seoTitle         String?
+  seoDescription   String?
+  createdAt        DateTime                  @default(now())
+  updatedAt        DateTime                  @updatedAt
+  seedSet          SeedSet                   @relation(fields: [seedSetId], references: [id], onDelete: Cascade)
+  items            SeedSetRevisionItem[]
+
+  @@unique([seedSetId, role])
+  @@index([seedSetId])
+  @@index([role, updatedAt])
+}
+
+model SeedSetRevisionItem {
+  id         String          @id @default(cuid())
+  revisionId String
+  productId  String
+  position   Int?
+  createdAt  DateTime        @default(now())
+  revision   SeedSetRevision @relation(fields: [revisionId], references: [id], onDelete: Cascade)
+  product    Product         @relation(fields: [productId], references: [id], onDelete: Restrict)
+
+  @@unique([revisionId, productId])
+  @@index([revisionId])
+  @@index([productId])
+}
+
+model Order {
+  id                          String                 @id @default(cuid())
+  orderNumber                 String                 @unique
+  customerName                String
+  phone                       String
+  phoneNormalized             String
+  email                       String?
+  address                     String?
+  comment                     String?
+  status                      OrderStatus            @default(PENDING)
+  fulfillmentStatus           FulfillmentStatus      @default(NEW)
+  totalPrice                  Int
+  subtotalPrice               Int                    @default(0)
+  discountPrice               Int                    @default(0)
+  giftWrapPrice               Int                    @default(0)
+  shippingPrice               Int                    @default(0)
+  shippingMethod              ShippingMethod         @default(SELF_PICKUP)
+  isRepeatCustomer            Boolean?
+  requiresStockReview         Boolean                @default(false)
+  preorderRequired            Boolean                @default(false)
+  preorderConfirmedAt         DateTime?
+  preorderNote                String?
+  requiresPaymentReview       Boolean                @default(false)
+  checkoutKey                 String?                @unique
+  checkoutFingerprint         String?
+  paymentStatus               PaymentStatus          @default(NOT_STARTED)
+  yookassaPaymentId           String?                @unique
+  yookassaConfirmationUrl     String?
+  paymentResultTokenHash      String?                @unique
+  paymentResultTokenExpiresAt DateTime?
+  termsAcceptedAt             DateTime?
+  legalVersion                String?
+  paidAt                      DateTime?
+  paymentUpdatedAt            DateTime?
+  createdAt                   DateTime               @default(now())
+  updatedAt                   DateTime               @updatedAt
+  items                       OrderItem[]
+  paymentAttempts             PaymentAttempt[]
+  paymentEvents               PaymentEvent[]
+  inventoryReservations       InventoryReservation[]
+  inventoryMovements          InventoryMovement[]
+  statusHistory               OrderStatusHistory[]
+  shipment                    Shipment?
+  notifications               NotificationOutbox[]
+
+  @@index([phone])
+  @@index([phoneNormalized])
+  @@index([status])
+  @@index([fulfillmentStatus, createdAt])
+  @@index([paymentStatus])
+  @@index([paymentStatus, createdAt])
+}
+
+model OrderItem {
+  id                  String                       @id @default(cuid())
+  orderId             String
+  kind                OrderItemKind                @default(PRODUCT)
+  productId           String?
+  seedSetId           String?
+  productNameSnapshot String
+  priceSnapshot       Int
+  imageUrlSnapshot    String?
+  serviceCode         String?
+  quantity            Int
+  isPreorder          Boolean                      @default(false)
+  createdAt           DateTime                     @default(now())
+  order               Order                        @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product             Product?                     @relation(fields: [productId], references: [id], onDelete: Restrict)
+  seedSet             SeedSet?                     @relation(fields: [seedSetId], references: [id], onDelete: Restrict)
+  components          OrderItemComponentSnapshot[]
+
+  @@index([orderId])
+  @@index([productId])
+  @@index([seedSetId])
+}
+
+model OrderItemComponentSnapshot {
+  id                  String    @id @default(cuid())
+  orderItemId         String
+  productId           String?
+  productNameSnapshot String
+  quantity            Int       @default(1)
+  createdAt           DateTime  @default(now())
+  orderItem           OrderItem @relation(fields: [orderItemId], references: [id], onDelete: Cascade)
+
+  @@index([orderItemId])
+  @@index([productId])
+}
+
+model PaymentAttempt {
+  id                String         @id @default(cuid())
+  orderId           String
+  attemptNumber     Int
+  idempotencyKey    String         @unique
+  provider          String         @default("yookassa")
+  providerPaymentId String?        @unique
+  status            PaymentStatus  @default(NOT_STARTED)
+  amount            Int
+  confirmationUrl   String?
+  errorCode         String?
+  errorMessage      String?
+  paidAt            DateTime?
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+  order             Order          @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  events            PaymentEvent[]
+
+  @@unique([orderId, attemptNumber])
+  @@index([orderId, createdAt])
+  @@index([status, updatedAt])
+}
+
+model PaymentEvent {
+  id                String          @id @default(cuid())
+  orderId           String
+  paymentAttemptId  String?
+  eventKey          String          @unique
+  eventType         String
+  providerPaymentId String?
+  payload           Json?
+  processedAt       DateTime?
+  processingError   String?
+  createdAt         DateTime        @default(now())
+  order             Order           @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  paymentAttempt    PaymentAttempt? @relation(fields: [paymentAttemptId], references: [id], onDelete: SetNull)
+
+  @@index([orderId, createdAt])
+  @@index([providerPaymentId])
+}
+
+model InventoryReservation {
+  id        String                     @id @default(cuid())
+  orderId   String
+  productId String
+  quantity  Int
+  backorderQuantity Int                @default(0)
+  status    InventoryReservationStatus @default(ACTIVE)
+  expiresAt DateTime
+  createdAt DateTime                   @default(now())
+  updatedAt DateTime                   @updatedAt
+  order     Order                      @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product                    @relation(fields: [productId], references: [id], onDelete: Restrict)
+
+  @@unique([orderId, productId])
+  @@index([productId, status, expiresAt])
+  @@index([status, expiresAt])
+}
+
+model InventoryMovement {
+  id        String                  @id @default(cuid())
+  productId String
+  orderId   String?
+  delta     Int
+  reason    InventoryMovementReason
+  note      String?
+  createdAt DateTime                @default(now())
+  product   Product                 @relation(fields: [productId], references: [id], onDelete: Restrict)
+  order     Order?                  @relation(fields: [orderId], references: [id], onDelete: SetNull)
+
+  @@index([productId, createdAt])
+  @@index([orderId])
+}
+
+model OrderStatusHistory {
+  id        String             @id @default(cuid())
+  orderId   String
+  from      FulfillmentStatus?
+  to        FulfillmentStatus
+  actorType String
+  actorId   String?
+  note      String?
+  createdAt DateTime           @default(now())
+  order     Order              @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([orderId, createdAt])
+}
+
+model Shipment {
+  id              String         @id @default(cuid())
+  orderId         String         @unique
+  method          ShippingMethod @default(SELF_PICKUP)
+  status          ShipmentStatus @default(AWAITING_DETAILS)
+  price           Int            @default(0)
+  addressSnapshot String?
+  trackingNumber  String?
+  managerNote     String?
+  shippedAt       DateTime?
+  deliveredAt     DateTime?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  order           Order          @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([status, updatedAt])
+  @@index([trackingNumber])
+}
+
+model NotificationOutbox {
+  id               String              @id @default(cuid())
+  orderId          String?
+  channel          NotificationChannel
+  template         String
+  recipient        String
+  payload          Json
+  deduplicationKey String              @unique
+  status           NotificationStatus  @default(PENDING)
+  attempts         Int                 @default(0)
+  nextAttemptAt    DateTime            @default(now())
+  lastError        String?
+  sentAt           DateTime?
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+  order            Order?              @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  @@index([status, nextAttemptAt])
+  @@index([orderId])
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  name         String?
+  email        String   @unique
+  passwordHash String
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model RateLimitBucket {
+  key         String   @id
+  count       Int      @default(0)
+  windowStart DateTime
+  expiresAt   DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([expiresAt])
+}

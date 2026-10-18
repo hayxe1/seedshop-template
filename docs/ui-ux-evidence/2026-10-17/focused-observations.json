@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-17",
+  "desktopFrames": [
+    {
+      "text": "ДЕМО Проба формы упаковка 0,1 г",
+      "height": 690.125,
+      "image": {
+        "x": 370,
+        "y": 321.53125,
+        "width": 299.328125,
+        "height": 199.546875,
+        "top": 321.53125,
+        "right": 669.328125,
+        "bottom": 521.078125,
+        "left": 370
+      },
+      "natural": [
+        359,
+        239
+      ],
+      "priceY": 881.46875
+    },
+    {
+      "text": "ДЕМО Проба формы упаковка 20 семян",
+      "height": 690.125,
+      "image": {
+        "x": 709.328125,
+        "y": 321.53125,
+        "width": 299.328125,
+        "height": 359.34375,
+        "top": 321.53125,
+        "right": 1008.65625,
+        "bottom": 680.875,
+        "left": 709.328125
+      },
+      "natural": [
+        359,
+        432
+      ],
+      "priceY": 881.46875
+    }
+  ],
+  "productTyping": {
+    "action": "Select all → Backspace → type 20",
+    "afterClear": "1",
+    "afterTyping": "99"
+  },
+  "productGeometry": {
+    "titleFont": "50.7px",
+    "title": {
+      "x": 12,
+      "y": -67,
+      "width": 366,
+      "height": 198.75,
+      "top": -67,
+      "right": 378,
+      "bottom": 131.75,
+      "left": 12
+    },
+    "price": {
+      "x": 12,
+      "y": 289.53125,
+      "width": 366,
+      "height": 34,
+      "top": 289.53125,
+      "right": 378,
+      "bottom": 323.53125,
+      "left": 12
+    },
+    "quantity": {
+      "x": 260,
+      "y": 397.53125,
+      "width": 64,
+      "height": 48,
+      "top": 397.53125,
+      "right": 324,
+      "bottom": 445.53125,
+      "left": 260
+    }
+  },
+  "cartTyping": "20",
+  "searchFailure": "Точных совпадений нет. Нажмите Enter, чтобы поискать по всему каталогу."
+}
